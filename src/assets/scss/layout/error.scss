@@ -1,0 +1,16 @@
+.error {
+  width: 237px;
+  height: 336px;
+  margin: 0 auto;
+  padding-top: 150px;
+  font-size: 32px;
+}
+
+.error__link {
+  color: blue;
+
+  &:focus,
+  &:hover {
+    opacity: 0.5;
+  }
+}
