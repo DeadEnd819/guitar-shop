@@ -7,7 +7,7 @@ import {ReactComponent as LogoIcon} from '../../assets/img/svg/logo.svg';
 const Logo = ({block}) => {
   return (
     <div className={`${block}__logo`}>
-      <Link to={AppRoute.ROOT} aria-label="Перейти на главную страницу">
+      <Link to={AppRoute.ROOT} className={`${block}__logo-link`} aria-label="Перейти на главную страницу">
         <LogoIcon className={`${block}__logo-icon`} />
       </Link>
     </div>
