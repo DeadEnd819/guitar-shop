@@ -19,6 +19,7 @@
 
   &--active {
     color: $checkbox-hover-color;
+    cursor: default;
   }
 
   &--up {
@@ -28,6 +29,15 @@
   &--down {
     margin-right: 12px;
     transform: rotate(180deg);
+  }
+
+  &:not(&--active):hover,
+  &:not(&--active):focus {
+    color: $link-hover-color;
+  }
+
+  &:not(&--active):active {
+    color: $link-active-color;
   }
 }
 

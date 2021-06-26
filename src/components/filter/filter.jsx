@@ -32,7 +32,7 @@ const Filter = () => {
           <label className="filter__label" htmlFor="six">6</label>
           <input className="filter__checkbox visually-hidden" type="checkbox" id="seven" name="seven" />
           <label className="filter__label" htmlFor="seven">7</label>
-          <input className="filter__checkbox visually-hidden" type="checkbox" id="twelve" name="twelve" />
+          <input disabled={true} className="filter__checkbox visually-hidden" type="checkbox" id="twelve" name="twelve" />
           <label className="filter__label" htmlFor="twelve">12</label>
         </fieldset>
       </form>

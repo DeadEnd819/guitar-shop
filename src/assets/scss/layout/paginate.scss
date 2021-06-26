@@ -42,5 +42,23 @@
   &--active {
     color: $global-background-color;
     background-color: $checkbox-hover-color;
+    cursor: default;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  &:not(&--active):hover,
+  &:not(&--active):focus {
+    color: $global-background-color;
+    background-color: $checkbox-hover-color;
+    border-color: $checkbox-hover-color;
+  }
+
+  &:not(&--active):active {
+    color: $global-background-color;
+    background-color: $checkbox-color;
+    border-color: $checkbox-color;
   }
 }

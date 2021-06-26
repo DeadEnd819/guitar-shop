@@ -55,6 +55,24 @@
     padding: 4px 12px 4px 11px;
     background-color: $orange-btn-color;
   }
+
+  &:hover,
+  &:focus {
+    background-color: $checkbox-hover-color;
+  }
+
+  &:active {
+    background-color: $checkbox-color;
+  }
+
+  &--orange:hover,
+  &--orange:focus {
+    background-color: $orange-hover-color;
+  }
+
+  &--orange:active {
+    background-color: $orange-active-color;
+  }
 }
 
 .cards__button svg {

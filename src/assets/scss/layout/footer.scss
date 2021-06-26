@@ -25,7 +25,7 @@
   &::after {
     content: "";
     position: absolute;
-    top: -25px;
+    top: -26px;
     left: 0;
     width: 100%;
     height: 6px;
@@ -50,7 +50,7 @@
   display: flex;
   justify-content: flex-start;
   padding-top: 60px;
-  padding-bottom: 51px;
+  padding-bottom: 52px;
   background-color: $footer-background-color;
   z-index: 3;
 }
@@ -68,17 +68,17 @@
   }
 
   &--about {
-    max-width: 137px;
+    max-width: 138px;
     margin-right: 22px;
   }
 
   &--catalog {
-    margin-right: 43px;
+    margin-right: 39px;
   }
 
   &--contacts {
-    max-width: 124px;
-    margin-left: 138px;
+    max-width: 125px;
+    margin-left: 133px;
   }
 }
 
@@ -105,14 +105,18 @@
   @include base-font($regular);
   font-size: 14px;
   line-height: 44px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.13em;
 }
 
 .footer__description {
   font-size: 10px;
   line-height: 12px;
   letter-spacing: 0.1em;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.footer__item {
+  margin-bottom: -1px;
 }
 
 .footer__link {
@@ -142,10 +146,32 @@
 }
 
 .footer__list--social .footer__item {
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   margin-right: 23px;
 }
 
+.footer__content-wrapper--about .footer__title {
+  margin-bottom: 2px;
+}
+
+.footer__content-wrapper--catalog .footer__title,
+.footer__content-wrapper--info .footer__title {
+  margin-bottom: -2px;
+}
+
 .footer__content-wrapper--about .footer__description {
-  letter-spacing: inherit;
+  letter-spacing: 0.02em;
+}
+
+.footer__content-wrapper--contacts .footer__description {
+  margin-bottom: 7px;
+}
+
+.footer__content-wrapper--contacts .footer__description,
+.footer__content-wrapper--catalog .footer__link {
+  letter-spacing: 0.12em;
+}
+
+.footer__description span {
+  letter-spacing: 0.09em;
 }
