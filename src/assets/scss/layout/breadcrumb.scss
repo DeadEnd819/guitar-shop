@@ -1,0 +1,33 @@
+.breadcrumb {
+  @include reset-list;
+  display: flex;
+}
+
+.breadcrumb__item {
+  position: relative;
+  margin-right: 10px;
+  color: $link-hover-color;
+
+  &:not(:first-child) {
+    margin-left: 26px;
+  }
+
+  &:not(:first-child)::before {
+    position: absolute;
+    top: 5px;
+    left: -23px;
+    content: "";
+    width: 16px;
+    height: 16px;
+    background-image: url("../../img/svg/icon-arrow-right.svg");
+    background-repeat: no-repeat;
+  }
+}
+
+.breadcrumb__link {
+  color: $link-hover-color;
+
+  &:active {
+    color: $link-active-color;
+  }
+}

@@ -1,0 +1,36 @@
+.sort {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort__title {
+  margin-right: 19px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+}
+
+.sort__button {
+  @include reset-text;
+  margin-right: 34px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &--active {
+    color: $checkbox-hover-color;
+  }
+
+  &--up {
+    margin-right: 25px;
+  }
+
+  &--down {
+    margin-right: 7px;
+    transform: rotate(180deg);
+  }
+}
+
+.sort__button--up.sort__button--active,
+.sort__button--down.sort__button--active {
+  color: $sort-btn-active-color;
+}

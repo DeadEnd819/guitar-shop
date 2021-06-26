@@ -1,0 +1,119 @@
+.filter {
+  width: 208px;
+  margin-right: 32px;
+}
+
+.filter__title,
+.filter__legend {
+  @include reset-text;
+  @include base-font($bold);
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.filter__fieldset {
+  @include reset-text;
+  position: relative;
+  margin-top: 60px;
+  padding-top: 24px;
+  border: none;
+
+  &:not(:first-child) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &::before {
+    position: absolute;
+    top: -53px;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 0.7px;
+    background-color: $line-color;
+  }
+}
+
+.filter__legend span {
+  font-size: 0.85em;
+}
+
+.filter__input-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  &::before {
+    position: absolute;
+    top: 13px;
+    left: 97px;
+    content: "";
+    width: 14px;
+    height: 1px;
+    background-color: #585757;
+  }
+}
+
+.filter__input {
+  width: 84px;
+  height: 28px;
+  font-size: 14px;
+  line-height: 10px;
+  letter-spacing: 0.05em;
+  border: 0.7px solid $checkbox-color;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.filter__label {
+  position: relative;
+  margin-left: 42px;
+  line-height: 19px;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-bottom: 17px;
+  }
+}
+
+.filter__checkbox[type="checkbox"] + .filter__label::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -3px;
+  left: -42px;
+  width: 24px;
+  height: 24px;
+  border: 0.7px solid $checkbox-color;
+  border-radius: 2px;
+}
+
+.filter__checkbox[type="checkbox"]:checked + .filter__label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: -36px;
+  width: 14px;
+  height: 14px;
+  background: no-repeat url("../../img/svg/icon-check.svg");
+}
+
+.filter__checkbox[type="checkbox"]:hover + .filter__label::before,
+.filter__checkbox[type="checkbox"]:focus + .filter__label::before, {
+  border-color: $checkbox-hover-color;
+}
+
+.filter__checkbox[type="checkbox"]:active + .filter__label::before{
+  border-color: $checkbox-active-color;
+}
+
+.filter__checkbox[type="checkbox"]:disabled + .filter__label::before{
+  background-color: $checkbox-disabled-fill-color;
+  border-color: $checkbox-disabled-color;
+}
+
+.filter__checkbox[type="checkbox"]:disabled + .filter__label {
+  color: $checkbox-disabled-color;
+  cursor: default;
+}

@@ -1,0 +1,60 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cards__list,
+.rating__list,
+.cards__buttons {
+  @include reset-list;
+}
+
+.cards__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 30px;
+  margin-top: 29px;
+}
+
+.cards__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  min-height: 304px;
+  padding: 14px;
+  border: 1px solid $line-color;
+}
+
+.cards__buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cards__button {
+  padding: 4px 9px;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.02em;
+  color: $global-background-color;
+  background-color: $checkbox-active-color;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &--orange {
+    padding: 3px 12px 3px 11px;
+    background-color: $orange-btn-color;
+  }
+}
+
+.cards__button svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -1px;
+  margin-right: 4px;
+}

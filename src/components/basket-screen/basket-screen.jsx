@@ -3,7 +3,7 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import Main from '../main/main';
 
-const BasketScreen = ({title}) => {
+const BasketScreen = ({title, pathname}) => {
   useEffect(()=>{
     document.title = title;
   }, [title]);
@@ -11,7 +11,9 @@ const BasketScreen = ({title}) => {
   return (
     <>
       <Header />
-      <Main />
+        <Main title={`Корзина`} pathname={pathname}>
+          Пусто
+        </Main>
       <Footer />
     </>
   );

@@ -3,6 +3,11 @@
   font-weight: $weight;
 }
 
+@mixin other-font($weight: $regular) {
+  font-family: "poppins", "Arial", sans-serif;
+  font-weight: $weight;
+}
+
 @mixin reset-list {
   list-style: none;
   @include reset-text
