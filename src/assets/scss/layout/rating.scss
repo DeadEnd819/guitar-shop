@@ -5,16 +5,17 @@
 
 .rating {
   align-self: flex-start;
+  margin-top: 2px;
 }
 
 .rating__item {
-  margin-right: 2px;
+  margin-right: 4px;
 }
 
 .rating__counter {
   @include other-font();
   align-self: center;
-  margin-left: 3px;
+  margin-left: 2px;
   font-size: 10px;
   line-height: 15px;
   letter-spacing: 0.1em;

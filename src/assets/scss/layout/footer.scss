@@ -48,28 +48,37 @@
 
 .footer__wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding-top: 60px;
-  padding-bottom: 60px;
+  padding-bottom: 51px;
   background-color: $footer-background-color;
   z-index: 3;
 }
 
 .footer__content-wrapper {
+  &:not(&--left) {
+    margin-top: 7px;
+  }
+
   &--left {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-right: 10%;
+    margin-right: 100px;
   }
 
   &--about {
     max-width: 137px;
+    margin-right: 22px;
+  }
+
+  &--catalog {
+    margin-right: 43px;
   }
 
   &--contacts {
     max-width: 124px;
-    margin-left: 10%;
+    margin-left: 138px;
   }
 }
 
@@ -133,7 +142,8 @@
 }
 
 .footer__list--social .footer__item {
-  margin-right: 22px;
+  margin-bottom: 5px;
+  margin-right: 23px;
 }
 
 .footer__content-wrapper--about .footer__description {

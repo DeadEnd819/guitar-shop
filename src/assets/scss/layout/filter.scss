@@ -1,6 +1,6 @@
 .filter {
-  width: 208px;
-  margin-right: 32px;
+  width: 210px;
+  margin-right: 30px;
 }
 
 .filter__title,
@@ -9,6 +9,7 @@
   @include base-font($bold);
   font-size: 18px;
   line-height: 21px;
+  letter-spacing: 0.03em;
 }
 
 .filter__fieldset {
@@ -23,9 +24,13 @@
     flex-direction: column;
   }
 
+  &:last-child {
+    margin-top: 65px;
+  }
+
   &::before {
     position: absolute;
-    top: -53px;
+    top: -54px;
     left: 0;
     content: "";
     width: 100%;
@@ -35,7 +40,9 @@
 }
 
 .filter__legend span {
-  font-size: 0.85em;
+  @include other-font($bold);
+  font-size: 0.8em;
+  margin-left: -2px;
 }
 
 .filter__input-wrapper {
@@ -67,8 +74,9 @@
 
 .filter__label {
   position: relative;
-  margin-left: 42px;
+  margin-left: 40px;
   line-height: 19px;
+  letter-spacing: 0.03em;
   cursor: pointer;
 
   &:not(:last-child) {
@@ -80,8 +88,8 @@
   content: "";
   display: block;
   position: absolute;
-  top: -3px;
-  left: -42px;
+  top: -2px;
+  left: -40px;
   width: 24px;
   height: 24px;
   border: 0.7px solid $checkbox-color;
@@ -92,8 +100,8 @@
   content: "";
   display: block;
   position: absolute;
-  top: 4px;
-  left: -36px;
+  top: 5px;
+  left: -34px;
   width: 14px;
   height: 14px;
   background: no-repeat url("../../img/svg/icon-check.svg");

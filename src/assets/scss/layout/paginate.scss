@@ -30,6 +30,10 @@
     margin-right: 14px;
   }
 
+  &--more {
+    @include other-font();
+  }
+
   &--onward {
     margin-left: 4px;
     margin-right: 0;

@@ -6,7 +6,6 @@
 .breadcrumb__item {
   position: relative;
   margin-right: 10px;
-  color: $link-hover-color;
 
   &:not(:first-child) {
     margin-left: 26px;
@@ -24,7 +23,10 @@
   }
 }
 
+.breadcrumb__item,
 .breadcrumb__link {
+  line-height: 19px;
+  letter-spacing: 0.03em;
   color: $link-hover-color;
 
   &:active {

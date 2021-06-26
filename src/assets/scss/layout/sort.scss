@@ -3,15 +3,16 @@
   justify-content: space-between;
 }
 
-.sort__title {
+.sort__title,
+.sort__button {
   margin-right: 19px;
-  line-height: 20px;
-  letter-spacing: 0.05em;
+  line-height: 22px;
+  letter-spacing: 0.08em;
 }
 
 .sort__button {
   @include reset-text;
-  margin-right: 34px;
+  margin-right: 32px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -21,11 +22,11 @@
   }
 
   &--up {
-    margin-right: 25px;
+    margin-right: 22px;
   }
 
   &--down {
-    margin-right: 7px;
+    margin-right: 12px;
     transform: rotate(180deg);
   }
 }
