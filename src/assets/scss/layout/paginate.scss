@@ -43,10 +43,6 @@
     color: $global-background-color;
     background-color: $checkbox-hover-color;
     cursor: default;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
   }
 
   &:not(&--active):hover,
