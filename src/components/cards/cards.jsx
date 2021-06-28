@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../../assets/img/jpg/acoustic-guitar.jpg';
+import image from '../../assets/img/jpg/electric-guitar.jpg';
 import {ReactComponent as ArrowIcon} from '../../assets/img/svg/icon-arrow-sort.svg';
 import {ReactComponent as StarIcon} from '../../assets/img/svg/icon-star.svg';
 import {ReactComponent as ButtonIcon} from '../../assets/img/svg/icon-cart-button.svg';

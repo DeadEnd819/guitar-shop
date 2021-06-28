@@ -17,11 +17,11 @@ const BREADCRUMB_LIST = [
   },
 ]
 
-const Main = ({title, children, pathname}) => {
+const Main = ({title, children, pathname, modifier}) => {
   let isActive = false;
 
   return (
-    <main className="main">
+    <main className={`main${modifier ? ` main--${modifier}` : ``}`}>
       <div className="main__wrapper container">
         <h2 className="main__title">{title}</h2>
         <ul className="breadcrumb">

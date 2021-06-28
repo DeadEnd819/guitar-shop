@@ -1,8 +1,14 @@
 .main {
   position: relative;
   width: 100%;
+  margin-top: 214px;
   margin-bottom: 139px;
   flex: 1 0 auto;
+
+  &--basket {
+    margin-top: 238px;
+    margin-bottom: 170px;
+  }
 }
 
 .main__title {
