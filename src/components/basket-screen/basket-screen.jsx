@@ -1,11 +1,39 @@
 import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Main from '../main/main';
 import img from '../../assets/img/jpg/electric-guitar-small.jpg';
 import {ReactComponent as CloseIcon} from '../../assets/img/svg/icon-close.svg';
+import ChangeProduct from '../add-product/change-product';
+import {getChangeProductModalData} from '../../store/selectors';
+import {splittingDigits} from '../../utils';
 
-const BasketScreen = ({title, pathname}) => {
+const BasketItem = ({vendorCode, name, type, strings, price, total}) => {
+  return (
+    <li className="basket__item">
+      <button className="basket__button basket__button--close" type="button">
+        <CloseIcon />
+      </button>
+      <img className="basket__img" src={img} width="48" height="124" alt="Гитара"/>
+      <div className="basket__description-wrapper">
+        <h3 className="basket__title">{type} {name}</h3>
+        <span className="basket__description">Артикул: {vendorCode}</span>
+        <span className="basket__description">{type}, {strings} струнная</span>
+      </div>
+      <span className="basket__price">{splittingDigits(price)} &#8381;</span>
+      <fieldset className="basket__fieldset">
+        <legend className="visually-hidden">Количество товара</legend>
+        <button className="basket__button" type="button">&ndash;</button>
+        <input className="basket__input" type="number" placeholder="1" />
+        <button className="basket__button" type="button">&#43;</button>
+      </fieldset>
+      <span className="basket__price basket__price--total">{splittingDigits(total)} &#8381;</span>
+    </li>
+  );
+};
+
+const BasketScreen = ({title, pathname, getChangeProductModalData}) => {
   useEffect(()=>{
     document.title = title;
   }, [title]);
@@ -43,8 +71,8 @@ const BasketScreen = ({title, pathname}) => {
                   <img className="basket__img" src={img} width="48" height="124" alt="Гитара"/>
                   <div className="basket__description-wrapper">
                     <h3 className="basket__title">ЭЛЕКТРОГИТАРА ЧЕСТЕР BASS</h3>
-                    <span className="basket__description">Артикул: S0757575</span>
-                    <span className="basket__description">Электрогитара, 6 струнная</span>
+                    <p className="basket__description">Артикул: S0757575</p>
+                    <p className="basket__description">Электрогитара, 6 струнная</p>
                   </div>
                   <span className="basket__price">17 500 &#8381;</span>
                   <fieldset className="basket__fieldset">
@@ -73,10 +101,16 @@ const BasketScreen = ({title, pathname}) => {
               </div>
             </form>
           </section>
+          {getChangeProductModalData && <ChangeProduct isAdd={false}/>}
         </Main>
       <Footer />
     </>
   );
 };
 
-export default BasketScreen;
+
+const mapStateToProps = (store) => ({
+  getChangeProductModalData: getChangeProductModalData(store),
+});
+
+export default connect(mapStateToProps)(BasketScreen);

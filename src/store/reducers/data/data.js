@@ -1,9 +1,10 @@
 import {ActionType} from '../../../const';
+import {dataMocks} from '../../../mocks';
 
 const {ADD_DATA} = ActionType;
 
 const initialState = {
-  data: {},
+  data: dataMocks,
 };
 
 const data = (state = initialState, action) => {

@@ -110,14 +110,14 @@
     border: none;
   }
 
-  &:hover,
-  &:focus {
+  &:not(&--close):hover,
+  &:not(&--close):focus {
     color: $global-background-color;
     background-color: $checkbox-hover-color;
     border-color: $checkbox-hover-color;
   }
 
-  &:active {
+  &:not(&--close):active {
     color: $global-background-color;
     background-color: $checkbox-color;
     border-color: $checkbox-color;
