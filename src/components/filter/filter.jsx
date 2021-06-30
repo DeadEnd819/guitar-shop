@@ -8,10 +8,10 @@ const Filter = () => {
         <fieldset className="filter__fieldset" title="Фильтр по цене">
           <legend className="filter__legend">Цена, <span>&#8381;</span></legend>
           <div className="filter__input-wrapper">
-            <input className="filter__input" type="number" id="min" name="min" placeholder="1 000" />
-            <label className="visually-hidden" htmlFor="min">Минимальная цена</label>
-            <input className="filter__input" type="number" id="max" name="max" placeholder="30 000" />
-            <label className="visually-hidden" htmlFor="max">Максимальная цена</label>
+            <input className="filter__input" type="number" id="minPrice" name="minPrice" placeholder="1 000" />
+            <label className="visually-hidden" htmlFor="minPrice">Минимальная цена</label>
+            <input className="filter__input" type="number" id="maxPrice" name="maxPrice" placeholder="30 000" />
+            <label className="visually-hidden" htmlFor="maxPrice">Максимальная цена</label>
           </div>
         </fieldset>
         <fieldset className="filter__fieldset" title="Фильтр по типу">

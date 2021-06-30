@@ -2,6 +2,8 @@ import {ReactComponent as MapIcon} from './assets/img/svg/icon-map.svg';
 import {ReactComponent as SearchIcon} from './assets/img/svg/icon-search.svg';
 import {ReactComponent as BasketIcon} from './assets/img/svg/icon-basket.svg';
 
+export const CARDS_PER_PAGE = 9;
+
 export const AppRoute = {
   ROOT: `/`,
   CATALOG: `/catalog`,

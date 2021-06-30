@@ -1,3 +1,28 @@
+import electricImg from './assets/img/jpg/electric-guitar.jpg';
+import electricImgSmall from './assets/img/jpg/electric-guitar-small.jpg';
+import electricImgRetina from './assets/img/jpg/electric-guitar@2x.jpg';
+import electricImgRetinaSmall from './assets/img/jpg/electric-guitar-small@2x.jpg';
+import electricImgWebp from './assets/img/webp/electric-guitar.webp';
+import electricImgWebpRetina from './assets/img/webp/electric-guitar@2x.webp';
+import electricImgWebpSmall from './assets/img/webp/electric-guitar-small.webp';
+import electricImgWebpRetinaSmall from './assets/img/webp/electric-guitar-small@2x.webp';
+import acousticImg from './assets/img/jpg/acoustic-guitar.jpg';
+import acousticImgSmall from './assets/img/jpg/acoustic-guitar-small.jpg';
+import acousticImgRetina from './assets/img/jpg/acoustic-guitar@2x.jpg';
+import acousticImgRetinaSmall from './assets/img/jpg/acoustic-guitar-small@2x.jpg';
+import acousticImgWebp from './assets/img/webp/acoustic-guitar.webp';
+import acousticImgWebpRetina from './assets/img/webp/acoustic-guitar@2x.webp';
+import acousticImgWebpSmall from './assets/img/webp/acoustic-guitar-small.webp';
+import acousticImgWebpRetinaSmall from './assets/img/webp/acoustic-guitar-small@2x.webp';
+import ukuleleImg from './assets/img/jpg/ukulele-guitar.jpg';
+import ukuleleImgSmall from './assets/img/jpg/ukulele-guitar-small.jpg';
+import ukuleleImgRetina from './assets/img/jpg/ukulele-guitar@2x.jpg';
+import ukuleleImgRetinaSmall from './assets/img/jpg/ukulele-guitar-small@2x.jpg';
+import ukuleleImgWebp from './assets/img/webp/ukulele-guitar.webp';
+import ukuleleImgWebpRetina from './assets/img/webp/ukulele-guitar@2x.webp';
+import ukuleleImgWebpSmall from './assets/img/webp/ukulele-guitar-small.webp';
+import ukuleleImgWebpRetinaSmall from './assets/img/webp/ukulele-guitar-small@2x.webp';
+
 export const dataMocks = [
   {
     id: 1,
@@ -8,10 +33,14 @@ export const dataMocks = [
     strings: 7,
     price: 17500,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: electricImg,
+      small: electricImgSmall,
+      retinaBig: electricImgRetina,
+      retinaSmall: electricImgRetinaSmall,
+      webp: electricImgWebp,
+      webpRetina: electricImgWebpRetina,
+      webpSmall: electricImgWebpSmall,
+      webpRetinaSmall: electricImgWebpRetinaSmall,
     }
   },
   {
@@ -23,10 +52,14 @@ export const dataMocks = [
     strings: 7,
     price: 29500,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: electricImg,
+      small: electricImgSmall,
+      retinaBig: electricImgRetina,
+      retinaSmall: electricImgRetinaSmall,
+      webp: electricImgWebp,
+      webpRetina: electricImgWebpRetina,
+      webpSmall: electricImgWebpSmall,
+      webpRetinaSmall: electricImgWebpRetinaSmall,
     }
   },
   {
@@ -38,10 +71,14 @@ export const dataMocks = [
     strings: 4,
     price: 6800,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: ukuleleImg,
+      small: ukuleleImgSmall,
+      retinaBig: ukuleleImgRetina,
+      retinaSmall: ukuleleImgRetinaSmall,
+      webp: ukuleleImgWebp,
+      webpRetina: ukuleleImgWebpRetina,
+      webpSmall: ukuleleImgWebpSmall,
+      webpRetinaSmall: ukuleleImgWebpRetinaSmall,
     }
   },
   {
@@ -53,10 +90,14 @@ export const dataMocks = [
     strings: 6,
     price: 30000,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: electricImg,
+      small: electricImgSmall,
+      retinaBig: electricImgRetina,
+      retinaSmall: electricImgRetinaSmall,
+      webp: electricImgWebp,
+      webpRetina: electricImgWebpRetina,
+      webpSmall: electricImgWebpSmall,
+      webpRetinaSmall: electricImgWebpRetinaSmall,
     }
   },
   {
@@ -68,10 +109,14 @@ export const dataMocks = [
     strings: 7,
     price: 3500,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: acousticImg,
+      small: acousticImgSmall,
+      retinaBig: acousticImgRetina,
+      retinaSmall: acousticImgRetinaSmall,
+      webp: acousticImgWebp,
+      webpRetina: acousticImgWebpRetina,
+      webpSmall: acousticImgWebpSmall,
+      webpRetinaSmall: acousticImgWebpRetinaSmall,
     }
   },
   {
@@ -83,10 +128,14 @@ export const dataMocks = [
     strings: 6,
     price: 15300,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: electricImg,
+      small: electricImgSmall,
+      retinaBig: electricImgRetina,
+      retinaSmall: electricImgRetinaSmall,
+      webp: electricImgWebp,
+      webpRetina: electricImgWebpRetina,
+      webpSmall: electricImgWebpSmall,
+      webpRetinaSmall: electricImgWebpRetinaSmall,
     }
   },
   {
@@ -98,10 +147,14 @@ export const dataMocks = [
     strings: 4,
     price: 2200,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: ukuleleImg,
+      small: ukuleleImgSmall,
+      retinaBig: ukuleleImgRetina,
+      retinaSmall: ukuleleImgRetinaSmall,
+      webp: ukuleleImgWebp,
+      webpRetina: ukuleleImgWebpRetina,
+      webpSmall: ukuleleImgWebpSmall,
+      webpRetinaSmall: ukuleleImgWebpRetinaSmall,
     }
   },
   {
@@ -113,10 +166,14 @@ export const dataMocks = [
     strings: 4,
     price: 30000,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: electricImg,
+      small: electricImgSmall,
+      retinaBig: electricImgRetina,
+      retinaSmall: electricImgRetinaSmall,
+      webp: electricImgWebp,
+      webpRetina: electricImgWebpRetina,
+      webpSmall: electricImgWebpSmall,
+      webpRetinaSmall: electricImgWebpRetinaSmall,
     }
   },
   {
@@ -128,10 +185,14 @@ export const dataMocks = [
     strings: 7,
     price: 1700,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: acousticImg,
+      small: acousticImgSmall,
+      retinaBig: acousticImgRetina,
+      retinaSmall: acousticImgRetinaSmall,
+      webp: acousticImgWebp,
+      webpRetina: acousticImgWebpRetina,
+      webpSmall: acousticImgWebpSmall,
+      webpRetinaSmall: acousticImgWebpRetinaSmall,
     }
   },
   {
@@ -143,10 +204,14 @@ export const dataMocks = [
     strings: 4,
     price: 23000,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: electricImg,
+      small: electricImgSmall,
+      retinaBig: electricImgRetina,
+      retinaSmall: electricImgRetinaSmall,
+      webp: electricImgWebp,
+      webpRetina: electricImgWebpRetina,
+      webpSmall: electricImgWebpSmall,
+      webpRetinaSmall: electricImgWebpRetinaSmall,
     }
   },
   {
@@ -158,10 +223,14 @@ export const dataMocks = [
     strings: 4,
     price: 18700,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: electricImg,
+      small: electricImgSmall,
+      retinaBig: electricImgRetina,
+      retinaSmall: electricImgRetinaSmall,
+      webp: electricImgWebp,
+      webpRetina: electricImgWebpRetina,
+      webpSmall: electricImgWebpSmall,
+      webpRetinaSmall: electricImgWebpRetinaSmall,
     }
   },
   {
@@ -173,10 +242,14 @@ export const dataMocks = [
     strings: 7,
     price: 35000,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: electricImg,
+      small: electricImgSmall,
+      retinaBig: electricImgRetina,
+      retinaSmall: electricImgRetinaSmall,
+      webp: electricImgWebp,
+      webpRetina: electricImgWebpRetina,
+      webpSmall: electricImgWebpSmall,
+      webpRetinaSmall: electricImgWebpRetinaSmall,
     }
   },
   {
@@ -188,10 +261,14 @@ export const dataMocks = [
     strings: 6,
     price: 14900,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: electricImg,
+      small: electricImgSmall,
+      retinaBig: electricImgRetina,
+      retinaSmall: electricImgRetinaSmall,
+      webp: electricImgWebp,
+      webpRetina: electricImgWebpRetina,
+      webpSmall: electricImgWebpSmall,
+      webpRetinaSmall: electricImgWebpRetinaSmall,
     }
   },
   {
@@ -203,10 +280,14 @@ export const dataMocks = [
     strings: 6,
     price: 7600,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: acousticImg,
+      small: acousticImgSmall,
+      retinaBig: acousticImgRetina,
+      retinaSmall: acousticImgRetinaSmall,
+      webp: acousticImgWebp,
+      webpRetina: acousticImgWebpRetina,
+      webpSmall: acousticImgWebpSmall,
+      webpRetinaSmall: acousticImgWebpRetinaSmall,
     }
   },
   {
@@ -218,10 +299,14 @@ export const dataMocks = [
     strings: 6,
     price: 6500,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: acousticImg,
+      small: acousticImgSmall,
+      retinaBig: acousticImgRetina,
+      retinaSmall: acousticImgRetinaSmall,
+      webp: acousticImgWebp,
+      webpRetina: acousticImgWebpRetina,
+      webpSmall: acousticImgWebpSmall,
+      webpRetinaSmall: acousticImgWebpRetinaSmall,
     }
   },
   {
@@ -233,10 +318,14 @@ export const dataMocks = [
     strings: 7,
     price: 12000,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: acousticImg,
+      small: acousticImgSmall,
+      retinaBig: acousticImgRetina,
+      retinaSmall: acousticImgRetinaSmall,
+      webp: acousticImgWebp,
+      webpRetina: acousticImgWebpRetina,
+      webpSmall: acousticImgWebpSmall,
+      webpRetinaSmall: acousticImgWebpRetinaSmall,
     }
   },
   {
@@ -248,10 +337,14 @@ export const dataMocks = [
     strings: 7,
     price: 9900,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: acousticImg,
+      small: acousticImgSmall,
+      retinaBig: acousticImgRetina,
+      retinaSmall: acousticImgRetinaSmall,
+      webp: acousticImgWebp,
+      webpRetina: acousticImgWebpRetina,
+      webpSmall: acousticImgWebpSmall,
+      webpRetinaSmall: acousticImgWebpRetinaSmall,
     }
   },
   {
@@ -263,10 +356,14 @@ export const dataMocks = [
     strings: 12,
     price: 8900,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: acousticImg,
+      small: acousticImgSmall,
+      retinaBig: acousticImgRetina,
+      retinaSmall: acousticImgRetinaSmall,
+      webp: acousticImgWebp,
+      webpRetina: acousticImgWebpRetina,
+      webpSmall: acousticImgWebpSmall,
+      webpRetinaSmall: acousticImgWebpRetinaSmall,
     }
   },
   {
@@ -278,10 +375,14 @@ export const dataMocks = [
     strings: 12,
     price: 10500,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: acousticImg,
+      small: acousticImgSmall,
+      retinaBig: acousticImgRetina,
+      retinaSmall: acousticImgRetinaSmall,
+      webp: acousticImgWebp,
+      webpRetina: acousticImgWebpRetina,
+      webpSmall: acousticImgWebpSmall,
+      webpRetinaSmall: acousticImgWebpRetinaSmall,
     }
   },
   {
@@ -293,10 +394,14 @@ export const dataMocks = [
     strings: 6,
     price: 13300,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: acousticImg,
+      small: acousticImgSmall,
+      retinaBig: acousticImgRetina,
+      retinaSmall: acousticImgRetinaSmall,
+      webp: acousticImgWebp,
+      webpRetina: acousticImgWebpRetina,
+      webpSmall: acousticImgWebpSmall,
+      webpRetinaSmall: acousticImgWebpRetinaSmall,
     }
   },
   {
@@ -308,10 +413,14 @@ export const dataMocks = [
     strings: 4,
     price: 4800,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: ukuleleImg,
+      small: ukuleleImgSmall,
+      retinaBig: ukuleleImgRetina,
+      retinaSmall: ukuleleImgRetinaSmall,
+      webp: ukuleleImgWebp,
+      webpRetina: ukuleleImgWebpRetina,
+      webpSmall: ukuleleImgWebpSmall,
+      webpRetinaSmall: ukuleleImgWebpRetinaSmall,
     }
   },
   {
@@ -323,10 +432,14 @@ export const dataMocks = [
     strings: 4,
     price: 1900,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: ukuleleImg,
+      small: ukuleleImgSmall,
+      retinaBig: ukuleleImgRetina,
+      retinaSmall: ukuleleImgRetinaSmall,
+      webp: ukuleleImgWebp,
+      webpRetina: ukuleleImgWebpRetina,
+      webpSmall: ukuleleImgWebpSmall,
+      webpRetinaSmall: ukuleleImgWebpRetinaSmall,
     }
   },
   {
@@ -338,10 +451,14 @@ export const dataMocks = [
     strings: 4,
     price: 2500,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: ukuleleImg,
+      small: ukuleleImgSmall,
+      retinaBig: ukuleleImgRetina,
+      retinaSmall: ukuleleImgRetinaSmall,
+      webp: ukuleleImgWebp,
+      webpRetina: ukuleleImgWebpRetina,
+      webpSmall: ukuleleImgWebpSmall,
+      webpRetinaSmall: ukuleleImgWebpRetinaSmall,
     }
   },
   {
@@ -353,10 +470,14 @@ export const dataMocks = [
     strings: 4,
     price: 3800,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: ukuleleImg,
+      small: ukuleleImgSmall,
+      retinaBig: ukuleleImgRetina,
+      retinaSmall: ukuleleImgRetinaSmall,
+      webp: ukuleleImgWebp,
+      webpRetina: ukuleleImgWebpRetina,
+      webpSmall: ukuleleImgWebpSmall,
+      webpRetinaSmall: ukuleleImgWebpRetinaSmall,
     }
   },
   {
@@ -368,10 +489,14 @@ export const dataMocks = [
     strings: 4,
     price: 4100,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: ukuleleImg,
+      small: ukuleleImgSmall,
+      retinaBig: ukuleleImgRetina,
+      retinaSmall: ukuleleImgRetinaSmall,
+      webp: ukuleleImgWebp,
+      webpRetina: ukuleleImgWebpRetina,
+      webpSmall: ukuleleImgWebpSmall,
+      webpRetinaSmall: ukuleleImgWebpRetinaSmall,
     }
   },
   {
@@ -383,10 +508,14 @@ export const dataMocks = [
     strings: 4,
     price: 2700,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: ukuleleImg,
+      small: ukuleleImgSmall,
+      retinaBig: ukuleleImgRetina,
+      retinaSmall: ukuleleImgRetinaSmall,
+      webp: ukuleleImgWebp,
+      webpRetina: ukuleleImgWebpRetina,
+      webpSmall: ukuleleImgWebpSmall,
+      webpRetinaSmall: ukuleleImgWebpRetinaSmall,
     }
   },
   {
@@ -398,10 +527,14 @@ export const dataMocks = [
     strings: 4,
     price: 6700,
     img: {
-      big: ``,
-      small: ``,
-      retina: ``,
-      webp: ``,
+      big: ukuleleImg,
+      small: ukuleleImgSmall,
+      retinaBig: ukuleleImgRetina,
+      retinaSmall: ukuleleImgRetinaSmall,
+      webp: ukuleleImgWebp,
+      webpRetina: ukuleleImgWebpRetina,
+      webpSmall: ukuleleImgWebpSmall,
+      webpRetinaSmall: ukuleleImgWebpRetinaSmall,
     }
   },
 ];

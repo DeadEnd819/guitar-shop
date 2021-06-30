@@ -32,6 +32,14 @@
 
   &--more {
     @include other-font();
+    appearance: none;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 
   &--onward {
@@ -45,14 +53,20 @@
     cursor: default;
   }
 
-  &:not(&--active):hover,
-  &:not(&--active):focus {
+  &--disabled {
+    color: $checkbox-disabled-color;
+    border-color: $checkbox-disabled-color;
+    cursor: default;
+  }
+
+  &:not(&--active):not(&--disabled):hover,
+  &:not(&--active):not(&--disabled):focus {
     color: $global-background-color;
     background-color: $checkbox-hover-color;
     border-color: $checkbox-hover-color;
   }
 
-  &:not(&--active):active {
+  &:not(&--active):not(&--disabled):active {
     color: $global-background-color;
     background-color: $checkbox-color;
     border-color: $checkbox-color;
