@@ -21,6 +21,39 @@ const Filter = ({getData, otherFilters, setPrice}) => {
     setPrice(getMinMaxPrice(getData))
   }, [getData, setPrice]);
 
+  const getDisabledByType = (filters, type) => {
+    switch (true) {
+      case (type === TitleByType.ACOUSTIC):
+        return filters.strings.includes(TypeFilterByStrings.FOUR) &&
+          !filters.type.includes(TitleByType.ACOUSTIC) &&
+          (filters.strings.length === 1);
+      case (type === TitleByType.ELECTRIC):
+        return filters.strings.includes(TypeFilterByStrings.TWELVE) &&
+          !filters.type.includes(TitleByType.ELECTRIC) &&
+          (filters.strings.length === 1);
+      case (type === TitleByType.UKULELE):
+        return !filters.strings.includes(TypeFilterByStrings.FOUR) &&
+          !filters.type.includes(TitleByType.UKULELE) && (filters.strings.length);
+      default:
+        return false;
+    }
+  };
+
+  const getDisabledByStrings = (filters, strings) => {
+    switch (true) {
+      case (strings === TypeFilterByStrings.FOUR):
+        return filters.type.includes(TitleByType.ACOUSTIC) && (filters.type.length === 1);
+      case (strings === TypeFilterByStrings.SIX):
+      case (strings === TypeFilterByStrings.SEVEN):
+        return filters.type.includes(TitleByType.UKULELE) && (filters.type.length === 1);
+      case (strings === TypeFilterByStrings.TWELVE):
+        return ((filters.type.includes(TitleByType.ELECTRIC) || filters.type.includes(TitleByType.UKULELE)) && (filters.type.length === 1)) ||
+          (filters.type.includes(TitleByType.ELECTRIC) && filters.type.includes(TitleByType.UKULELE) && (filters.type.length === 2));
+      default:
+        return false;
+    }
+  };
+
   return (
     <section className="filter">
       <h2 className="filter__title">Фильтр</h2>
@@ -50,6 +83,7 @@ const Filter = ({getData, otherFilters, setPrice}) => {
                 value={TitleByType[type]}
                 isChecked={otherFilters.type.includes(TitleByType[type])}
                 labelTitle={LabelTitle[type]}
+                disabled={getDisabledByType(otherFilters, TitleByType[type])}
               />
             )
           }
@@ -65,6 +99,7 @@ const Filter = ({getData, otherFilters, setPrice}) => {
                 value={TypeFilterByStrings[type]}
                 isChecked={otherFilters.strings.includes(TypeFilterByStrings[type])}
                 labelTitle={TypeFilterByStrings[type]}
+                disabled={getDisabledByStrings(otherFilters, TypeFilterByStrings[type])}
               />
             )
           }

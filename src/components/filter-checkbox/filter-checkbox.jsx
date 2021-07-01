@@ -2,20 +2,36 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {getOtherFilters} from '../../store/selectors';
 import {setOtherFilters} from '../../store/action';
-import {OtherFilterName} from '../../const';
-import {extend} from '../../utils';
+import {OtherFilterName, TypeOtherFilters, StringsAllowedForTypes, TypesAllowedForStrings} from '../../const';
+import {extend, getCurrentFilters} from '../../utils';
 
-const FilterCheckbox = ({id, nameFilter, value, isChecked, labelTitle, otherFilters, setOtherFilters}) => {
+const FilterCheckbox = ({id, nameFilter, value, isChecked, labelTitle, otherFilters, setOtherFilters, disabled = false}) => {
   const handleOtherFiltersChange = ({name, value, checked}) => {
     const currentValue = name === OtherFilterName.TYPE ? value : +value;
 
     if (checked) {
-      setOtherFilters(extend(otherFilters, {
-        [name]: [
-          ...otherFilters[name],
-          currentValue
-        ]
-      }));
+      switch (true) {
+        case nameFilter === TypeOtherFilters.TYPE:
+          setOtherFilters(extend(otherFilters, {
+            [TypeOtherFilters.TYPE]: [
+              ...otherFilters[name],
+              currentValue
+            ],
+            [TypeOtherFilters.STRINGS]: getCurrentFilters(otherFilters[TypeOtherFilters.STRINGS], StringsAllowedForTypes, currentValue),
+          }));
+          break;
+        case nameFilter === TypeOtherFilters.STRINGS:
+          setOtherFilters(extend(otherFilters, {
+            [TypeOtherFilters.STRINGS]: [
+              ...otherFilters[name],
+              currentValue
+            ],
+            [TypeOtherFilters.TYPE]: getCurrentFilters(otherFilters[TypeOtherFilters.TYPE], TypesAllowedForStrings, currentValue),
+          }));
+          break;
+        default:
+          return null;
+      }
       return;
     }
 
@@ -37,6 +53,7 @@ const FilterCheckbox = ({id, nameFilter, value, isChecked, labelTitle, otherFilt
         value={value}
         checked={isChecked}
         onChange={(evt) => handleOtherFiltersChange(evt.target)}
+        disabled={disabled}
       />
       <label className="filter__label" htmlFor={id}>{labelTitle}</label>
     </>

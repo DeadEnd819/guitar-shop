@@ -1,6 +1,3 @@
-import {TypeFilterByPrice} from './const';
-import {dataMocks} from './mocks';
-
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
@@ -21,12 +18,12 @@ export const getById = (items, id) => {
   return items.slice().find((item) => item.id === id);
 };
 
-export const getByType = (items, type) => {
-  return items.slice().filter((item) => item.type === type);
+export const getCurrentFilters = (items, filter, type) => {
+  return items.filter((item) => filter[type].includes(item));
 };
 
-export const getByStrings = (items, strings) => {
-  return items.slice().filter((item) => item.strings === strings);
+export const getCountItem = (items, type, value) => {
+  return items.slice().filter((item) => item[type] === value).length;
 };
 
 export const getByPrice = (items, {min, max}) => {

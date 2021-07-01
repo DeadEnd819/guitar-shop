@@ -91,6 +91,40 @@ export const DirectionSort = {
   DESC: `decs`,
 }
 
+export const StringsAllowedForTypes = {
+  [TitleByType.ACOUSTIC]: [
+    TypeFilterByStrings.SIX,
+    TypeFilterByStrings.SEVEN,
+    TypeFilterByStrings.TWELVE
+  ],
+  [TitleByType.ELECTRIC]: [
+    TypeFilterByStrings.FOUR,
+    TypeFilterByStrings.SIX,
+    TypeFilterByStrings.SEVEN
+  ],
+  [TitleByType.UKULELE]: [
+    TypeFilterByStrings.FOUR
+  ],
+};
+
+export const TypesAllowedForStrings = {
+  [TypeFilterByStrings.FOUR]: [
+    TitleByType.ELECTRIC,
+    TitleByType.UKULELE
+  ],
+  [TypeFilterByStrings.SIX]: [
+    TitleByType.ACOUSTIC,
+    TitleByType.ELECTRIC,
+  ],
+  [TypeFilterByStrings.SEVEN]: [
+    TitleByType.ACOUSTIC,
+    TitleByType.ELECTRIC,
+  ],
+  [TypeFilterByStrings.TWELVE]: [
+    TitleByType.ACOUSTIC,
+  ],
+};
+
 export const NAVIGATION_ITEMS = [
   {
     name: `Каталог`,

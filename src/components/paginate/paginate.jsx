@@ -14,6 +14,7 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
   const paginateItems = [
     {
       id: `back`,
+      key: `btnBack`,
       className: ` paginate__link--back${isFirstActive ? ` visually-hidden` : ``}`,
       title: `Назад`,
       onClick(evt) {
@@ -25,24 +26,28 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
     },
     {
       id: 0,
+      key: `first`,
       className: `${activePage === 0 ? ` paginate__link--active` : ``}`,
       title: `1`,
       onClick,
     },
     {
       id: (near - 1),
-      className: `${activePage === (near - 1) ? ` paginate__link--active` : ``}`,
+      key: `near`,
+      className: `${activePage === (near - 1) ? ` paginate__link--active` : ``}${!(pageCount > 2) ? ` visually-hidden` : ``}`,
       title: near,
       onClick,
     },
     {
       id: (pageCount - 1),
-      className: `${activePage === (pageCount - 1) ? ` paginate__link--active` : ``}`,
+      key: `last`,
+      className: `${activePage === (pageCount - 1) ? ` paginate__link--active` : ``}${!(pageCount > 1) ? ` visually-hidden` : ``}`,
       title: pageCount,
       onClick,
     },
     {
       id: `onward`,
+      key: `onward`,
       className: ` paginate__link--onward${isLastActive ? ` paginate__link--disabled` : ``}`,
       title: `Далее`,
       onClick(evt) {
@@ -57,8 +62,8 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
   return (
     <ul className="paginate">
       {
-        paginateItems.map(({id, className, title, onClick}) =>
-          <li className="paginate__item" key={title}>
+        paginateItems.map(({id, key, className, title, onClick}) =>
+          <li className="paginate__item" key={key}>
             {/*eslint-disable-next-line*/}
             <a
               className={`paginate__link${className}`}

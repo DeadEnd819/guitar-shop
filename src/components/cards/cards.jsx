@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import CardsItem from '../cards-item/cards-item';
 import Paginate from '../paginate/paginate';
@@ -6,12 +6,21 @@ import Sort from '../sort/sort';
 import {CARDS_PER_PAGE} from '../../const';
 import {getFilteredByPrice} from '../../store/selectors';
 
+const FIRST_PAGE = 0;
+
 const Cards = ({getData}) => {
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState(FIRST_PAGE);
 
   const pagesVisited = pageNumber * CARDS_PER_PAGE;
   const pageCount = Math.ceil(getData.length / CARDS_PER_PAGE);
-  console.log(getData)
+
+  useEffect(() => {
+   if ((pageNumber + 1) > pageCount) {
+     setPageNumber(FIRST_PAGE);
+   }
+  }, [pageNumber, pageCount]);
+
+
   return (
     <section className="cards">
       <Sort />
