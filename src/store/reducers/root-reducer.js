@@ -2,17 +2,20 @@ import {combineReducers} from 'redux';
 import {data} from './data/data';
 import {modal} from './modal/modal';
 import {filter} from './filter/filter';
+import {sort} from './sort/sort';
 
 export const NameSpace = {
   DATA: `DATA`,
   MODAL: `MODAL`,
-  FILTER: `FILTER`
+  FILTER: `FILTER`,
+  SORT: `SORT`
 };
 
-const {DATA, MODAL, FILTER} = NameSpace;
+const {DATA, MODAL, FILTER, SORT} = NameSpace;
 
 export default combineReducers({
   [DATA]: data,
   [MODAL]: modal,
   [FILTER]: filter,
+  [SORT]: sort,
 });

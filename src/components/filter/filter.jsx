@@ -1,6 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
+import FilterInput from '../filter-input/filter-input';
+import FilterCheckbox from '../filter-checkbox/filter-checkbox';
+import {getMinMaxPrice} from '../../utils';
+import {getData, getOtherFilters} from '../../store/selectors';
+import {setFilterByPrice} from '../../store/action';
+import {
+  TypePrice,
+  TypeFilterByPrice,
+  LabelTitle,
+  TypeGuitar,
+  TypeStrings,
+  TypeFilterByStrings,
+  TitleByType,
+  OtherFilterName
+} from '../../const';
 
-const Filter = () => {
+const Filter = ({getData, otherFilters, setPrice}) => {
+  useEffect(() => {
+    setPrice(getMinMaxPrice(getData))
+  }, [getData, setPrice]);
+
   return (
     <section className="filter">
       <h2 className="filter__title">Фильтр</h2>
@@ -8,35 +28,61 @@ const Filter = () => {
         <fieldset className="filter__fieldset" title="Фильтр по цене">
           <legend className="filter__legend">Цена, <span>&#8381;</span></legend>
           <div className="filter__input-wrapper">
-            <input className="filter__input" type="number" id="minPrice" name="minPrice" placeholder="1 000" />
-            <label className="visually-hidden" htmlFor="minPrice">Минимальная цена</label>
-            <input className="filter__input" type="number" id="maxPrice" name="maxPrice" placeholder="30 000" />
-            <label className="visually-hidden" htmlFor="maxPrice">Максимальная цена</label>
+            {
+              Object.keys(TypePrice).map((type, index) =>
+              <FilterInput
+                key={type + index}
+                type={TypeFilterByPrice[type]}
+                labelTitle={LabelTitle[type]}
+              />
+              )
+            }
           </div>
         </fieldset>
         <fieldset className="filter__fieldset" title="Фильтр по типу">
           <legend className="filter__legend">Тип гитар</legend>
-          <input className="filter__checkbox visually-hidden" type="checkbox" id="acoustic" name="acoustic" />
-          <label className="filter__label" htmlFor="acoustic">Акустические гитары</label>
-          <input className="filter__checkbox visually-hidden" type="checkbox" id="electric" name="electric" />
-          <label className="filter__label" htmlFor="electric">Электрогитары</label>
-          <input className="filter__checkbox visually-hidden" type="checkbox" id="ukulele" name="ukulele" />
-          <label className="filter__label" htmlFor="ukulele">Укулеле</label>
+          {
+            Object.keys(TypeGuitar).map((type, index) =>
+              <FilterCheckbox
+                key={type + index}
+                id={type}
+                nameFilter={OtherFilterName.TYPE}
+                value={TitleByType[type]}
+                isChecked={otherFilters.type.includes(TitleByType[type])}
+                labelTitle={LabelTitle[type]}
+              />
+            )
+          }
         </fieldset>
         <fieldset className="filter__fieldset" title="Фильтр по количеству струн">
           <legend className="filter__legend">Количество струн</legend>
-          <input className="filter__checkbox visually-hidden" type="checkbox" id="four" name="four" />
-          <label className="filter__label" htmlFor="four">4</label>
-          <input className="filter__checkbox visually-hidden" type="checkbox" id="six" name="six" />
-          <label className="filter__label" htmlFor="six">6</label>
-          <input className="filter__checkbox visually-hidden" type="checkbox" id="seven" name="seven" />
-          <label className="filter__label" htmlFor="seven">7</label>
-          <input disabled={true} className="filter__checkbox visually-hidden" type="checkbox" id="twelve" name="twelve" />
-          <label className="filter__label" htmlFor="twelve">12</label>
+          {
+            Object.keys(TypeStrings).map((type, index) =>
+              <FilterCheckbox
+                key={type + index}
+                id={type}
+                nameFilter={OtherFilterName.STRINGS}
+                value={TypeFilterByStrings[type]}
+                isChecked={otherFilters.strings.includes(TypeFilterByStrings[type])}
+                labelTitle={TypeFilterByStrings[type]}
+              />
+            )
+          }
         </fieldset>
       </form>
     </section>
   );
 };
 
-export default Filter;
+const mapStateToProps = (store) => ({
+  getData: getData(store),
+  otherFilters: getOtherFilters(store),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setPrice(data) {
+    dispatch(setFilterByPrice(data));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

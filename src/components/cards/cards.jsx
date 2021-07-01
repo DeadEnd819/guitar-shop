@@ -1,38 +1,27 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import CardsItem from '../cards-item/cards-item';
 import Paginate from '../paginate/paginate';
 import Sort from '../sort/sort';
 import {CARDS_PER_PAGE} from '../../const';
-import {dataMocks} from '../../mocks';
+import {getFilteredByPrice} from '../../store/selectors';
 
-const Cards = () => {
+const Cards = ({getData}) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const pagesVisited = pageNumber * CARDS_PER_PAGE;
-  const pageCount = Math.ceil(dataMocks.length / CARDS_PER_PAGE);
-
-  const filter = (array = [], filters = {}) => {
-    const keys = Object.keys(filters).filter(key => filters.hasOwnProperty(key));
-    return array.filter(elem => {
-      const commonKeys = keys.filter(key => elem.hasOwnProperty(key));
-      return commonKeys.reduce((flag, key) => (flag && filters[key].includes(elem[key])), true);
-    });
-  };
-
-  const filters = { type: [`укулеле`, `акустическая гитара`], strings: [4, 7] };
-
-  console.log(filter(dataMocks, filters));
-
+  const pageCount = Math.ceil(getData.length / CARDS_PER_PAGE);
+  console.log(getData)
   return (
     <section className="cards">
       <Sort />
       <ul className="cards__list">
         {
-          dataMocks
+          getData
             .slice(pagesVisited, pagesVisited + CARDS_PER_PAGE)
             .map(({id, name, comments, price, img}, index) =>
             <CardsItem
-              key={id + index}
+              key={name + index}
               id={id}
               name={name}
               comments={comments}
@@ -47,4 +36,8 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+const mapStateToProps = (store) => ({
+  getData: getFilteredByPrice(store),
+});
+
+export default connect(mapStateToProps)(Cards);

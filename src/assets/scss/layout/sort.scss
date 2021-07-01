@@ -17,7 +17,7 @@
   border: none;
   cursor: pointer;
 
-  &--active {
+  &:disabled {
     color: $checkbox-hover-color;
     cursor: default;
   }
@@ -31,14 +31,18 @@
     transform: rotate(180deg);
   }
 
-  &:not(&--active):hover,
-  &:not(&--active):focus {
+  &:not(&:disabled):hover,
+  &:not(&:disabled):focus {
     color: $link-hover-color;
   }
 
-  &:not(&--active):active {
+  &:not(&:disabled):active {
     color: $link-active-color;
   }
+}
+
+.sort__svg {
+  pointer-events: none;
 }
 
 .sort__button--up.sort__button--active,

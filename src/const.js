@@ -16,12 +16,80 @@ export const ActionType = {
   CHANGE_PRODUCT_MODAL_CLOSE: `CHANGE_PRODUCT_MODAL_CLOSE`,
   MODAL_CONFIRMATION_OPEN: `MODAL_CONFIRMATION_OPEN`,
   MODAL_CONFIRMATION_CLOSE: `MODAL_CONFIRMATION_CLOSE`,
+  CHANGE_FILTER_BY_PRICE: `CHANGE_FILTER_BY_PRICE`,
+  CHANGE_OTHER_FILTERS: `CHANGE_OTHER_FILTERS`,
+  CHANGE_SORT_TYPE: `CHANGE_SORT_TYPE`,
+  CHANGE_SORT_DIRECTION: `CHANGE_SORT_DIRECTION`,
 };
 
 export const Key = {
   ESCAPE: `Escape`,
   ESC: `Esc`,
 };
+
+export const TypeGuitar = {
+  ACOUSTIC: `ACOUSTIC`,
+  ELECTRIC: `ELECTRIC`,
+  UKULELE: `UKULELE`,
+};
+
+export const TitleByType = {
+  ACOUSTIC: `акустическая гитара`,
+  ELECTRIC: `электрогитара`,
+  UKULELE: `укулеле`,
+};
+
+export const TypePrice = {
+  MIN: `MIN`,
+  MAX: `MIN`
+};
+
+export const TypeFilterByPrice = {
+  MIN: `min`,
+  MAX: `max`,
+};
+
+export const TypeStrings = {
+  FOUR: `FOUR`,
+  SIX: `SIX`,
+  SEVEN: `SEVEN`,
+  TWELVE: `TWELVE`
+};
+
+export const TypeOtherFilters = {
+  TYPE: `type`,
+  STRINGS: `strings`,
+};
+
+export const TypeFilterByStrings = {
+  FOUR: 4,
+  SIX: 6,
+  SEVEN: 7,
+  TWELVE: 12
+};
+
+export const LabelTitle = {
+  MIN_PRICE: `Минимальная цена`,
+  MAX_PRICE: `Максимальная`,
+  ACOUSTIC: `Акустические гитары`,
+  ELECTRIC: `Электрогитары`,
+  UKULELE: `Укулеле`,
+};
+
+export const OtherFilterName = {
+  TYPE: `type`,
+  STRINGS: `strings`,
+}
+
+export const TypeSort = {
+  PRICE: `price`,
+  COMMENTS: `comments`,
+}
+
+export const DirectionSort = {
+  INC: `inc`,
+  DESC: `decs`,
+}
 
 export const NAVIGATION_ITEMS = [
   {
