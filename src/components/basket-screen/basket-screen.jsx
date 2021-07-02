@@ -5,7 +5,7 @@ import Footer from '../footer/footer';
 import Main from '../main/main';
 import img from '../../assets/img/jpg/electric-guitar-small.jpg';
 import {ReactComponent as CloseIcon} from '../../assets/img/svg/icon-close.svg';
-import ChangeProduct from '../add-product/change-product';
+import ChangeProduct from '../change-product/change-product';
 import {getChangeProductModalData} from '../../store/selectors';
 import {splittingDigits} from '../../utils';
 

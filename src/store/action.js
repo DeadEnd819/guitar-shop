@@ -1,5 +1,4 @@
 import {ActionType} from '../const';
-import {getSortDirection, getSortType} from './selectors';
 
 const {
   CHANGE_PRODUCT_MODAL_OPEN,
@@ -12,8 +11,9 @@ const {
   CHANGE_SORT_DIRECTION
 } = ActionType;
 
-export const setChangeProductModalOpen = () => ({
+export const setChangeProductModalOpen = (id) => ({
   type: CHANGE_PRODUCT_MODAL_OPEN,
+  payload: id,
 });
 
 export const setChangeProductModalClose = () => ({

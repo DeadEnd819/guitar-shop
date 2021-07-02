@@ -9,6 +9,7 @@ const {
 } = ActionType;
 
 const initialState = {
+  currentId: null,
   isChangeProductOpen: false,
   isConfirmationOpen: false,
 };
@@ -17,11 +18,13 @@ const modal = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_PRODUCT_MODAL_OPEN:
       return extend(state, {
-        isChangeProductOpen: true
+        isChangeProductOpen: true,
+        currentId: action.payload
       });
     case CHANGE_PRODUCT_MODAL_CLOSE:
       return extend(state, {
-        isChangeProductOpen: false
+        isChangeProductOpen: false,
+        currentId: null
       });
     case MODAL_CONFIRMATION_OPEN:
       return extend(state, {

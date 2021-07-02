@@ -5,7 +5,7 @@ import Footer from '../footer/footer';
 import Main from '../main/main';
 import Cards from '../cards/cards';
 import Filter from '../filter/filter';
-import ChangeProduct from '../add-product/change-product';
+import ChangeProduct from '../change-product/change-product';
 import Confirmation from '../confirmation/confirmation';
 import {getChangeProductModalData, getConfirmationModalFlag} from "../../store/selectors";
 

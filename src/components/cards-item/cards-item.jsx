@@ -1,9 +1,12 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {ReactComponent as StarIcon} from '../../assets/img/svg/icon-star.svg';
 import {ReactComponent as ButtonIcon} from '../../assets/img/svg/icon-cart-button.svg';
 import {splittingDigits} from '../../utils';
+// import {} from '../../store/selectors';
+import {setChangeProductModalOpen} from '../../store/action';
 
-const CardsItem = ({id, name, comments, price, img}) => {
+const CardsItem = ({id, name, comments, price, img, openModal}) => {
   return (
     <li className="cards__item">
       <img className="cards__img" src={img.big} width="68" height="190" alt="Гитара"/>
@@ -41,7 +44,7 @@ const CardsItem = ({id, name, comments, price, img}) => {
             className="cards__button cards__button--orange"
             type="button"
             aria-label="В корзину"
-            onClick={() => console.log(id)}
+            onClick={() => openModal(id)}
           >
             <ButtonIcon />
             Купить
@@ -52,4 +55,14 @@ const CardsItem = ({id, name, comments, price, img}) => {
   );
 };
 
-export default CardsItem;
+// const mapStateToProps = (store) => ({
+//   getData: getData(store),
+// });
+
+const mapDispatchToProps = (dispatch) => ({
+  openModal(id) {
+    dispatch(setChangeProductModalOpen(id));
+  },
+});
+
+export default connect(null, mapDispatchToProps)(CardsItem);

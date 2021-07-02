@@ -1,8 +1,14 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import ModalWrapper from '../modal-wrapper/modal-wrapper';
-import img from '../../assets/img/jpg/electric-guitar-small.jpg';
+// import img from '../../assets/img/jpg/electric-guitar-small.jpg';
+// import {} from '../../store/action';
+import {getCurrentCard} from '../../store/selectors';
+import {getUppercaseText, capitalizeFirstLetter, splittingDigits} from '../../utils';
 
-const ChangeProduct = ({isAdd}) => {
+const ChangeProduct = ({isAdd, currentCard}) => {
+  const {img, name, vendorCode, type, strings, price} = currentCard;
+
   return (
     <ModalWrapper
       block={`change-product`}
@@ -10,12 +16,12 @@ const ChangeProduct = ({isAdd}) => {
       onModalClose={() => {}}
     >
       <div className="change-product__wrapper">
-        <img className="change-product__img" src={img} width="48" height="124" alt="Гитара"/>
+        <img className="change-product__img" src={img.small} width="48" height="124" alt="Гитара"/>
         <div className="change-product__details-wrapper">
-          <p className="change-product__name">ГИТАРА ЧЕСТЕР BASS</p>
-          <p className="change-product__description">Артикул: S0757575</p>
-          <p className="change-product__description">Электрогитара, 6 струнная</p>
-          <p className="change-product__price">Цена: 17 500 &#8381;</p>
+          <p className="change-product__name">{getUppercaseText(name)}</p>
+          <p className="change-product__description">Артикул: {vendorCode}</p>
+          <p className="change-product__description">{capitalizeFirstLetter(type)}, {strings} струнная</p>
+          <p className="change-product__price">Цена: {splittingDigits(price)} &#8381;</p>
         </div>
         {
           isAdd ?
@@ -37,4 +43,14 @@ const ChangeProduct = ({isAdd}) => {
   );
 };
 
-export default ChangeProduct;
+const mapStateToProps = (store) => ({
+  currentCard: getCurrentCard(store),
+});
+
+// const mapDispatchToProps = (dispatch) => ({
+//   openModal(id) {
+//     dispatch(setChangeProductModalOpen(id));
+//   },
+// });
+
+export default connect(mapStateToProps)(ChangeProduct);

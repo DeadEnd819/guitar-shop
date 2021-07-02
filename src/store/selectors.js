@@ -1,5 +1,5 @@
 import {createSelector} from "reselect";
-import {getByPrice, getFilteredData, sortByType} from "../utils";
+import {getByPrice, getFilteredData, sortByType, getById} from "../utils";
 import {DirectionSort} from '../const';
 
 export const getData = (state) => {
@@ -12,6 +12,10 @@ export const getChangeProductModalData = (state) => {
 
 export const getConfirmationModalFlag = (state) => {
   return state.MODAL.isConfirmationOpen;
+};
+
+export const getCurrentId = (state) => {
+  return state.MODAL.currentId;
 };
 
 export const getFilterByPrice = (state) => {
@@ -45,5 +49,13 @@ export const getFilteredByPrice = createSelector(
     const filtered = getFilteredData(getByPrice(data, price), OtherFilters);
 
     return sortByType(filtered, sortType, isReversSort);
+  }
+);
+
+export const getCurrentCard = createSelector(
+  getData,
+  getCurrentId,
+  (data, id) => {
+    return getById(data, id);
   }
 );
