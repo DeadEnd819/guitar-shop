@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {ReactComponent as StarIcon} from '../../assets/img/svg/icon-star.svg';
 import {ReactComponent as ButtonIcon} from '../../assets/img/svg/icon-cart-button.svg';
 import {splittingDigits} from '../../utils';
-// import {} from '../../store/selectors';
 import {setChangeProductModalOpen} from '../../store/action';
 
 const CardsItem = ({id, name, comments, price, img, openModal}) => {
@@ -54,10 +53,6 @@ const CardsItem = ({id, name, comments, price, img, openModal}) => {
     </li>
   );
 };
-
-// const mapStateToProps = (store) => ({
-//   getData: getData(store),
-// });
 
 const mapDispatchToProps = (dispatch) => ({
   openModal(id) {

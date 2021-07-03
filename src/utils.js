@@ -61,3 +61,18 @@ export const setCurrentValue = (value, min, max, type, callback) => {
     (value > max) ? callback({[type]: max}) :
       callback({[type]: value});
 };
+
+export const getUpdatedItem = (data, item) => {
+  return [
+    ...data.slice(0, data.indexOf(item)),
+    extend(item, {amount: item.amount + 1}),
+    ...data.slice(data.indexOf(item) + 1)
+  ]
+};
+
+export const removeItem = (data, item) => {
+  return [
+    ...data.slice(0, data.indexOf(item)),
+    ...data.slice(data.indexOf(item) + 1)
+  ]
+};

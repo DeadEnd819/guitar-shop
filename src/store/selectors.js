@@ -38,6 +38,22 @@ export const getSortDirection = (state) => {
   return state.SORT.direction;
 };
 
+export const getBasket = (state) => {
+  return state.BASKET.basket;
+};
+
+export const getBasketLength = (state) => {
+  return state.BASKET.basket.length;
+};
+
+export const getTotalCost = (state) => {
+  return state.BASKET.totalCost;
+};
+
+export const getPromoCode = (state) => {
+  return state.BASKET.promoCode;
+};
+
 export const getFilteredByPrice = createSelector(
   getData,
   getFilterByPrice,

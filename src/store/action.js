@@ -8,7 +8,10 @@ const {
   CHANGE_FILTER_BY_PRICE,
   CHANGE_OTHER_FILTERS,
   CHANGE_SORT_TYPE,
-  CHANGE_SORT_DIRECTION
+  CHANGE_SORT_DIRECTION,
+  CHANGE_BASKET,
+  CHANGE_TOTAL,
+  CHANGE_PROMO_CODE
 } = ActionType;
 
 export const setChangeProductModalOpen = (id) => ({
@@ -46,4 +49,19 @@ export const setSortType = (type) => ({
 export const setSortDirection = (direction) => ({
   type: CHANGE_SORT_DIRECTION,
   payload: direction,
+});
+
+export const setBasket = (data) => ({
+  type: CHANGE_BASKET,
+  payload: data,
+});
+
+export const setTotalCost = (totalCost) => ({
+  type: CHANGE_TOTAL,
+  payload: totalCost,
+});
+
+export const setPromoCode = (promoCode) => ({
+  type: CHANGE_PROMO_CODE,
+  payload: promoCode,
 });

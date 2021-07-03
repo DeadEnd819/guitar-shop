@@ -5,11 +5,17 @@ import {useEscapeButton} from '../../hooks/use-escape-button';
 import {ReactComponent as CloseIcon} from '../../assets/img/svg/icon-close.svg';
 
 const ModalWrapper = ({children, title, onModalClose}) => {
+  const handleBlockClick = (evt) => {
+    if (evt.target === evt.currentTarget) {
+      onModalClose();
+    }
+  };
+
   useOverflowHidden();
   useEscapeButton(onModalClose);
 
   return (
-    <div className="modal">
+    <div className="modal" onClick={handleBlockClick}>
       <div className="modal__content">
         <div className="modal__wrapper">
           <h3 className="modal__title">{title}</h3>
@@ -17,7 +23,7 @@ const ModalWrapper = ({children, title, onModalClose}) => {
             className="modal__button-close"
             type="button"
             aria-label="Закрыть окно"
-            onClick={() => {}}
+            onClick={onModalClose}
           >
             <CloseIcon
               className="modal__button-icon"

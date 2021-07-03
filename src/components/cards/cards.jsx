@@ -20,7 +20,6 @@ const Cards = ({getData}) => {
    }
   }, [pageNumber, pageCount]);
 
-
   return (
     <section className="cards">
       <Sort />

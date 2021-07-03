@@ -11,7 +11,7 @@
   padding-top: 25px;
   margin-bottom: 20px;
 
-  &::before {
+  &:first-child::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -21,7 +21,7 @@
     background-color: $line-color;
   }
 
-  &:not(:first-child)::after {
+  &::after {
     position: absolute;
     bottom: -15px;
     left: 0;
@@ -59,6 +59,7 @@
 
 .basket__title {
   @include base-font($bold);
+  width: 260px;
   margin-bottom: 14px;
   font-size: 16px;
   line-height: 15px;
@@ -104,31 +105,31 @@
   text-align: center;
   cursor: pointer;
 
-  &--close {
+  &--delete {
     margin-top: -7px;
     margin-left: -4px;
     border: none;
   }
 
-  &:not(&--close):hover,
-  &:not(&--close):focus {
+  &:not(&--delete):hover,
+  &:not(&--delete):focus {
     color: $global-background-color;
     background-color: $checkbox-hover-color;
     border-color: $checkbox-hover-color;
   }
 
-  &:not(&--close):active {
+  &:not(&--delete):active {
     color: $global-background-color;
     background-color: $checkbox-color;
     border-color: $checkbox-color;
   }
 
-  &--close:hover svg,
-  &--close:focus svg {
+  &--delete:hover svg,
+  &--delete:focus svg {
     transform: scale(1.2);
   }
 
-  &--close:active svg {
+  &--delete:active svg {
     transform: scale(0.8);
   }
 }
