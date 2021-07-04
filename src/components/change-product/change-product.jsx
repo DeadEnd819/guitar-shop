@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import ModalWrapper from '../modal-wrapper/modal-wrapper';
 import {getBasket, getCurrentCard} from '../../store/selectors';
 import {setBasket, setChangeProductModalClose, setConfirmationModalOpen} from '../../store/action';
+import {basketData, guitar} from '../../prop-types/prop-types';
 import {AmountUpdateType} from '../../const';
 import {
   removeItem,
@@ -85,6 +87,15 @@ const ChangeProduct = ({isAdd, currentCard, basketData, closeModal, addToBasket,
       </div>
     </ModalWrapper>
   );
+};
+
+ChangeProduct.propTypes = {
+  isAdd: PropTypes.bool.isRequired,
+  currentCard: guitar.isRequired,
+  basketData: basketData.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  addToBasket: PropTypes.func.isRequired,
+  removeFromBasket: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (store) => ({

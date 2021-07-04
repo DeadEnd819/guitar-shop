@@ -8,8 +8,8 @@ const {
 
 const initialState = {
   price: {
-    minPrice: 0,
-    maxPrice: 0,
+    min: 0,
+    max: 0,
   },
   otherFilters: {
     type: [],

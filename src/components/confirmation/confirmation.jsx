@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import ModalWrapper from '../modal-wrapper/modal-wrapper';
@@ -28,6 +29,10 @@ const Confirmation = ({closeModal}) => {
       </div>
     </ModalWrapper>
   );
+};
+
+Confirmation.propTypes = {
+  closeModal: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

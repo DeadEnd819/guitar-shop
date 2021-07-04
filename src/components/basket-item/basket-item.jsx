@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {ReactComponent as CloseIcon} from '../../assets/img/svg/icon-close.svg';
-import {AmountUpdateType} from '../../const';
-import {capitalizeFirstLetter, getUppercaseText, splittingDigits} from '../../utils';
 import {getTotalCost} from '../../store/selectors';
 import {setChangeProductModalOpen} from '../../store/action';
+import {AmountUpdateType} from '../../const';
+import {capitalizeFirstLetter, getUppercaseText, splittingDigits} from '../../utils';
+
 
 const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, openModal, onAmountChange}) => {
   const onDecrementClick = () => {
@@ -63,6 +65,19 @@ const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, op
       </span>
     </li>
   );
+};
+
+BasketItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  vendorCode: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  strings: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  img: PropTypes.object.isRequired,
+  amount: PropTypes.number.isRequired,
+  openModal: PropTypes.func.isRequired,
+  onAmountChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (store) => ({

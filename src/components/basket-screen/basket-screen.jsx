@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Main from '../main/main';
 import ChangeProduct from '../change-product/change-product';
 import BasketItem from '../basket-item/basket-item';
+import {basketData, guitarsData} from '../../prop-types/prop-types';
 import {getBasket, getChangeProductModalData, getData, getPromoCode, getTotalCost} from '../../store/selectors';
-import {getById, getCurrentTotalAmount, getUpdatedAmount, splittingDigits, getUppercaseText} from '../../utils';
 import {setBasket, setPromoCode, setTotalCost} from '../../store/action';
 import {PromoCodes} from '../../const';
+import {getById, getCurrentTotalAmount, getUpdatedAmount, splittingDigits, getUppercaseText} from '../../utils';
 
 const BasketScreen = ({
                         title,
@@ -41,6 +43,11 @@ const BasketScreen = ({
     addToBasket(getUpdatedAmount(basketData, currentItemInBasket, type, value));
   };
 
+  const handlePromoInputChange = (evt) => {
+    setCode(evt.target.value)
+    setError(false);
+  };
+
   const handlePromoButtonClick = () => {
     if (code.length) {
       const isValid = PromoCodes.hasOwnProperty(getUppercaseText(code));
@@ -48,6 +55,7 @@ const BasketScreen = ({
       if (isValid) {
         setError(false);
         setPromoCode(code);
+        setCode(``);
         return;
       }
       setError(true);
@@ -89,18 +97,20 @@ const BasketScreen = ({
                   <legend className="visually-hidden">Поле ввода промокода</legend>
                   <h3 className="promo-code__title">Промокод на скидку</h3>
                   <p className="promo-code__description">Введите свой промокод, если он у вас есть.</p>
-                  <div className={`promo-code__wrapper${error ? ` promo-code__wrapper--error` : ``}`}>
+                  <div className={`promo-code__wrapper${error && code ? ` promo-code__wrapper--error` : ``}`}>
                     <input
                       className="promo-code__input"
                       type="text"
                       value={code}
-                      onChange={(evt) => setCode(evt.target.value)}
+                      placeholder={getUppercaseText(promoCode)}
+                      onChange={handlePromoInputChange}
                     />
                     <button
                       className="promo-code__button"
                       type="button"
                       aria-label="Применить купон"
                       onClick={handlePromoButtonClick}
+                      disabled={!code}
                     >
                       Применить купон
                     </button>
@@ -119,6 +129,19 @@ const BasketScreen = ({
       <Footer />
     </>
   );
+};
+
+BasketScreen.propTypes = {
+  title: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired,
+  getData: guitarsData.isRequired,
+  basketData: basketData.isRequired,
+  totalCost: PropTypes.number.isRequired,
+  promoCode: PropTypes.string.isRequired,
+  getChangeProductModalData: PropTypes.bool.isRequired,
+  addToBasket: PropTypes.func.isRequired,
+  setTotalCost: PropTypes.func.isRequired,
+  setPromoCode: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (store) => ({

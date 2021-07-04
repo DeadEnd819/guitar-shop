@@ -5,6 +5,7 @@ import Paginate from '../paginate/paginate';
 import Sort from '../sort/sort';
 import {CARDS_PER_PAGE} from '../../const';
 import {getFilteredByPrice} from '../../store/selectors';
+import {guitarsData} from '../../prop-types/prop-types';
 
 const FIRST_PAGE = 0;
 
@@ -48,6 +49,10 @@ const Cards = ({getData}) => {
       }
     </section>
   );
+};
+
+Cards.propTypes = {
+  getData: guitarsData.isRequired,
 };
 
 const mapStateToProps = (store) => ({

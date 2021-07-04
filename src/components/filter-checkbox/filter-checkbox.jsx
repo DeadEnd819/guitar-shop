@@ -1,14 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getOtherFilters} from '../../store/selectors';
 import {setOtherFilters} from '../../store/action';
+import {filters} from '../../prop-types/prop-types';
 import {OtherFilterName, TypeOtherFilters, StringsAllowedForTypes, TypesAllowedForStrings} from '../../const';
 import {extend, getCurrentFilters} from '../../utils';
 
 const FilterCheckbox = ({id, nameFilter, value, isChecked, labelTitle, otherFilters, setOtherFilters, disabled = false}) => {
   const handleOtherFiltersChange = ({name, value, checked}) => {
     const currentValue = name === OtherFilterName.TYPE ? value : +value;
-
+    console.log(isChecked, disabled)
     if (checked) {
       switch (true) {
         case nameFilter === TypeOtherFilters.TYPE:
@@ -58,6 +60,26 @@ const FilterCheckbox = ({id, nameFilter, value, isChecked, labelTitle, otherFilt
       <label className="filter__label" htmlFor={id}>{labelTitle}</label>
     </>
   );
+};
+
+FilterCheckbox.propTypes = {
+  id: PropTypes.string.isRequired,
+  nameFilter: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  isChecked: PropTypes.bool.isRequired,
+  labelTitle: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+  otherFilters: filters.isRequired,
+  setOtherFilters: PropTypes.func.isRequired,
+  disabled: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.number,
+  ]).isRequired,
 };
 
 const mapStateToProps = (store) => ({

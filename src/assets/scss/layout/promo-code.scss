@@ -61,12 +61,17 @@
   border-radius: 2px;
   cursor: pointer;
 
-  &:hover,
-  &:focus {
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  &:not(:disabled):hover,
+  &:not(:disabled):focus {
     background-color: $checkbox-hover-color;
   }
 
-  &:active {
+  &:not(:disabled):active {
     background-color: $checkbox-color;
   }
 }

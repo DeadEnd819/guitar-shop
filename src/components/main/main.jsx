@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
 
@@ -47,6 +48,13 @@ const Main = ({title, children, pathname, modifier}) => {
       </div>
     </main>
   );
+};
+
+Main.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  pathname: PropTypes.string.isRequired,
+  modifier: PropTypes.string,
 };
 
 export default Main;

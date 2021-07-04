@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {ReactComponent as ArrowIcon} from '../../assets/img/svg/icon-arrow-sort.svg';
 import {getSortType, getSortDirection} from '../../store/selectors';
@@ -70,6 +71,13 @@ const Sort = ({type, direction, setType, setDirection}) => {
       </div>
     </div>
   );
+};
+
+Sort.propTypes = {
+  type: PropTypes.string,
+  direction: PropTypes.string,
+  setType: PropTypes.func.isRequired,
+  setDirection: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (store) => ({

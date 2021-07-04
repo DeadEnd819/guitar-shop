@@ -78,8 +78,8 @@ export const TypeFilterByStrings = {
 };
 
 export const LabelTitle = {
-  MIN_PRICE: `Минимальная цена`,
-  MAX_PRICE: `Максимальная`,
+  MIN: `Минимальная цена`,
+  MAX: `Максимальная`,
   ACOUSTIC: `Акустические гитары`,
   ELECTRIC: `Электрогитары`,
   UKULELE: `Укулеле`,

@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {ReactComponent as StarIcon} from '../../assets/img/svg/icon-star.svg';
 import {ReactComponent as ButtonIcon} from '../../assets/img/svg/icon-cart-button.svg';
+import {guitarImg} from '../../prop-types/prop-types';
 import {splittingDigits} from '../../utils';
 import {setChangeProductModalOpen} from '../../store/action';
 
@@ -52,6 +54,15 @@ const CardsItem = ({id, name, comments, price, img, openModal}) => {
       </ul>
     </li>
   );
+};
+
+CardsItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  comments: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  img: guitarImg.isRequired,
+  openModal: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

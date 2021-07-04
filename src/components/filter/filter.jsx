@@ -1,10 +1,12 @@
 import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import FilterInput from '../filter-input/filter-input';
 import FilterCheckbox from '../filter-checkbox/filter-checkbox';
-import {getMinMaxPrice} from '../../utils';
 import {getData, getOtherFilters} from '../../store/selectors';
 import {setFilterByPrice} from '../../store/action';
+import {filters, guitarsData} from '../../prop-types/prop-types';
+import {getMinMaxPrice} from '../../utils';
 import {
   TypePrice,
   TypeFilterByPrice,
@@ -63,11 +65,11 @@ const Filter = ({getData, otherFilters, setPrice}) => {
           <div className="filter__input-wrapper">
             {
               Object.keys(TypePrice).map((type, index) =>
-              <FilterInput
-                key={type + index}
-                type={TypeFilterByPrice[type]}
-                labelTitle={LabelTitle[type]}
-              />
+                <FilterInput
+                  key={type + index}
+                  type={TypeFilterByPrice[type]}
+                  labelTitle={LabelTitle[type]}
+                />
               )
             }
           </div>
@@ -107,6 +109,12 @@ const Filter = ({getData, otherFilters, setPrice}) => {
       </form>
     </section>
   );
+};
+
+Filter.propTypes = {
+  getData: guitarsData.isRequired,
+  otherFilters: filters.isRequired,
+  setPrice: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (store) => ({

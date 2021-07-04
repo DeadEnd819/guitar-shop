@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Header from '../header/header';
 import Footer from '../footer/footer';
@@ -28,6 +29,13 @@ const CatalogScreen = ({title, pathname, getChangeProductModalData, getConfirmat
       <Footer />
     </>
   );
+};
+
+CatalogScreen.propTypes = {
+  title: PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired,
+  getChangeProductModalData: PropTypes.bool.isRequired,
+  getConfirmationModalFlag: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (store) => ({

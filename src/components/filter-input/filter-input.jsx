@@ -4,8 +4,10 @@ import {splittingDigits, setCurrentValue, extend} from '../../utils';
 import {getFilterByPrice, getDefaultPrice} from '../../store/selectors';
 import {setFilterByPrice} from '../../store/action';
 import {TypeFilterByPrice} from '../../const';
+import PropTypes from 'prop-types';
+import {priceFilter} from '../../prop-types/prop-types';
 
-const FilterInput = ({type, filterPrice, defaultPrice, labelTitle, setValue}) => {
+const FilterInput = ({type, labelTitle, filterPrice, defaultPrice, setValue}) => {
   const [focus, setFocus] = useState(false);
   const [price, setPrice] = useState(0);
 
@@ -18,7 +20,7 @@ const FilterInput = ({type, filterPrice, defaultPrice, labelTitle, setValue}) =>
     setValue(extend(filterPrice, newPrice));
   }, [filterPrice, setValue]);
 
-  const handleBlurChange = useCallback(() => {
+  const handleBlurChange = () => {
     const currentMin = type === TypeFilterByPrice.MIN ?
       defaultPrice[TypeFilterByPrice.MIN] :
       filterPrice[TypeFilterByPrice.MIN];
@@ -28,7 +30,7 @@ const FilterInput = ({type, filterPrice, defaultPrice, labelTitle, setValue}) =>
 
     setFocus(false);
     setCurrentValue(price, currentMin, currentMax, type, handlePriceChange);
-  }, [type, price, filterPrice, defaultPrice,  handlePriceChange]);
+  };
 
   return (
     <>
@@ -41,12 +43,21 @@ const FilterInput = ({type, filterPrice, defaultPrice, labelTitle, setValue}) =>
         value={focus ? price : splittingDigits(filterPrice[type])}
         onFocus={() => setFocus(true)}
         onBlur={handleBlurChange}
-        onChange={(evt) =>
-          setPrice(+evt.target.value)}
+        onChange={(evt) => {
+          setPrice(+evt.target.value)
+        }}
       />
       <label className="visually-hidden" htmlFor={type}>{labelTitle}</label>
     </>
   );
+};
+
+FilterInput.propTypes = {
+  type: PropTypes.string.isRequired,
+  filterPrice: priceFilter.isRequired,
+  defaultPrice: priceFilter.isRequired,
+  labelTitle: PropTypes.string.isRequired,
+  setValue: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (store) => ({
