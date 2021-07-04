@@ -30,6 +30,12 @@ export const Key = {
   ESC: `Esc`,
 };
 
+export const AmountUpdateType = {
+  INC: `INC`,
+  DEC: `DEC`,
+  ADD: `ADD`
+};
+
 export const TypeGuitar = {
   ACOUSTIC: `ACOUSTIC`,
   ELECTRIC: `ELECTRIC`,
@@ -92,6 +98,12 @@ export const TypeSort = {
 export const DirectionSort = {
   INC: `inc`,
   DESC: `decs`,
+}
+
+export const PromoCodes = {
+  GITARAHIT: `GITARAHIT`,
+  SUPERGITARA: `SUPERGITARA`,
+  GITARA2020: `GITARA2020`
 }
 
 export const StringsAllowedForTypes = {

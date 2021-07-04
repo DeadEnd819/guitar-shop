@@ -1,3 +1,5 @@
+import {AmountUpdateType, PromoCodes} from './const';
+
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
 };
@@ -62,17 +64,54 @@ export const setCurrentValue = (value, min, max, type, callback) => {
       callback({[type]: value});
 };
 
-export const getUpdatedItem = (data, item) => {
-  return [
-    ...data.slice(0, data.indexOf(item)),
-    extend(item, {amount: item.amount + 1}),
-    ...data.slice(data.indexOf(item) + 1)
-  ]
-};
-
 export const removeItem = (data, item) => {
   return [
     ...data.slice(0, data.indexOf(item)),
     ...data.slice(data.indexOf(item) + 1)
   ]
+};
+
+export const getUpdatedAmount = (data, item, type, value = item.amount) => {
+  switch (true) {
+    case (type === AmountUpdateType.INC):
+      const currentAmount = (value + 1) <= 99 ? ++value : value;
+
+      return [
+        ...data.slice(0, data.indexOf(item)),
+        extend(item, {amount: currentAmount}),
+        ...data.slice(data.indexOf(item) + 1)
+      ];
+    case (type === AmountUpdateType.DEC):
+      return [
+        ...data.slice(0, data.indexOf(item)),
+        extend(item, {amount: --value}),
+        ...data.slice(data.indexOf(item) + 1)
+      ];
+    case (type === AmountUpdateType.ADD) && (value > 0 && value <= 99):
+      return [
+        ...data.slice(0, data.indexOf(item)),
+        extend(item, {amount: value}),
+        ...data.slice(data.indexOf(item) + 1)
+      ];
+    default:
+      return data;
+  }
+};
+
+export const getCurrentTotalAmount = (data, promoCode) => {
+  const currentPromo = getUppercaseText(promoCode);
+  const value = data
+    .map(({price, amount}) => price * amount)
+    .reduce((accumulator, value) => accumulator + value, 0);
+
+  switch (true) {
+    case currentPromo === PromoCodes.GITARAHIT:
+      return value - (value / 100 * 10);
+    case currentPromo === PromoCodes.SUPERGITARA:
+      return value - 700;
+    case currentPromo === PromoCodes.GITARA2020:
+      return (value / 100 * 30) > 3500 ? (value - 3500) : value - (value / 100 * 30);
+    default:
+      return value;
+  }
 };

@@ -10,7 +10,7 @@ const {
 const initialState = {
   basket: [],
   totalCost: 0,
-  promoCode: null
+  promoCode: ``
 };
 
 const basket = (state = initialState, action) => {

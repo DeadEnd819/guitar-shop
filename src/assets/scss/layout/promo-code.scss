@@ -24,7 +24,20 @@
 }
 
 .promo-code__wrapper {
+  position: relative;
   margin-top: 19px;
+  margin-bottom: 20px;
+
+  &--error:after {
+    content: "Промокод не действителен";
+    position: absolute;
+    bottom: -20px;
+    left: -5px;
+    width: 180px;
+    height: 19px;
+    font-size: 14px;
+    color: red;
+  }
 }
 
 .promo-code__input {

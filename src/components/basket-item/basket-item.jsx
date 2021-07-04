@@ -1,16 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {ReactComponent as CloseIcon} from '../../assets/img/svg/icon-close.svg';
+import {AmountUpdateType} from '../../const';
 import {capitalizeFirstLetter, getUppercaseText, splittingDigits} from '../../utils';
 import {getTotalCost} from '../../store/selectors';
-import { setChangeProductModalOpen} from '../../store/action';
+import {setChangeProductModalOpen} from '../../store/action';
 
-const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, openModal}) => {
+const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, openModal, onAmountChange}) => {
+  const onDecrementClick = () => {
+    if ((amount - 1) > 0) {
+      onAmountChange(id, AmountUpdateType.DEC)
+      return;
+    }
+    openModal(id);
+  };
+
   return (
     <li className="basket__item">
       <button
         className="basket__button basket__button--delete"
         type="button"
+        aria-label="Удалить товар"
         onClick={() => openModal(id)}
       >
         <CloseIcon />
@@ -24,11 +34,33 @@ const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, op
       <span className="basket__price">{splittingDigits(price)} &#8381;</span>
       <fieldset className="basket__fieldset">
         <legend className="visually-hidden">Количество товара</legend>
-        <button className="basket__button" type="button">&ndash;</button>
-        <input className="basket__input" type="number" placeholder={amount} value={amount} />
-        <button className="basket__button" type="button">&#43;</button>
+        <button
+          className="basket__button"
+          type="button"
+          aria-label="Добавить еще"
+          onClick={onDecrementClick}
+        >
+          &ndash;
+        </button>
+        <input
+          className="basket__input"
+          type="number"
+          placeholder={amount}
+          value={amount}
+          onChange={(evt) => onAmountChange(id, AmountUpdateType.ADD, +evt.target.value)}
+        />
+        <button
+          className="basket__button"
+          type="button"
+          aria-label="Убрать товар"
+          onClick={() => onAmountChange(id, AmountUpdateType.INC)}
+        >
+          &#43;
+        </button>
       </fieldset>
-      <span className="basket__price basket__price--total">{splittingDigits(amount * price)} &#8381;</span>
+      <span className="basket__price basket__price--total">
+        {splittingDigits(amount * price)} &#8381;
+      </span>
     </li>
   );
 };

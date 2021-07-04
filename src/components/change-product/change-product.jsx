@@ -3,7 +3,15 @@ import {connect} from 'react-redux';
 import ModalWrapper from '../modal-wrapper/modal-wrapper';
 import {getBasket, getCurrentCard} from '../../store/selectors';
 import {setBasket, setChangeProductModalClose, setConfirmationModalOpen} from '../../store/action';
-import {removeItem, getUppercaseText, capitalizeFirstLetter, splittingDigits, getById, getUpdatedItem} from '../../utils';
+import {AmountUpdateType} from '../../const';
+import {
+  removeItem,
+  getUppercaseText,
+  capitalizeFirstLetter,
+  splittingDigits,
+  getById,
+  getUpdatedAmount
+} from '../../utils';
 
 const ChangeProduct = ({isAdd, currentCard, basketData, closeModal, addToBasket, removeFromBasket}) => {
   const {id, img, name, vendorCode, type, strings, price} = currentCard;
@@ -23,7 +31,7 @@ const ChangeProduct = ({isAdd, currentCard, basketData, closeModal, addToBasket,
       return;
     }
 
-    addToBasket(getUpdatedItem(basketData, currentItemInBasket));
+    addToBasket(getUpdatedAmount(basketData, currentItemInBasket, AmountUpdateType.INC));
   };
 
   const handleRemoveItemClick = () => {

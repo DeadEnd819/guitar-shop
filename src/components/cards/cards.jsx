@@ -22,24 +22,30 @@ const Cards = ({getData}) => {
 
   return (
     <section className="cards">
-      <Sort />
-      <ul className="cards__list">
-        {
-          getData
-            .slice(pagesVisited, pagesVisited + CARDS_PER_PAGE)
-            .map(({id, name, comments, price, img}, index) =>
-            <CardsItem
-              key={name + index}
-              id={id}
-              name={name}
-              comments={comments}
-              price={price}
-              img={img}
-            />
-          )
-        }
-      </ul>
-      <Paginate activePage={pageNumber} pageCount={pageCount} onChangePage={setPageNumber} />
+      <Sort/>
+      {
+        !getData.length ? <p style={{margin: 'auto'}}>Товара нет в наличии</p> :
+          <>
+
+            <ul className="cards__list">
+              {
+                getData
+                  .slice(pagesVisited, pagesVisited + CARDS_PER_PAGE)
+                  .map(({id, name, comments, price, img}, index) =>
+                    <CardsItem
+                      key={name + index}
+                      id={id}
+                      name={name}
+                      comments={comments}
+                      price={price}
+                      img={img}
+                    />
+                  )
+              }
+            </ul>
+            <Paginate activePage={pageNumber} pageCount={pageCount} onChangePage={setPageNumber}/>
+          </>
+      }
     </section>
   );
 };
