@@ -8,6 +8,7 @@ import {ReactComponent as TwitterIcon} from './assets/img/svg/icon-twitter.svg';
 export const CARDS_PER_PAGE = 9;
 export const FIRST_PAGE = 0;
 export const RATING_STARS = [1, 2, 3, 4, 5];
+export const MAX_GUITARS = 99;
 
 export const CATALOG_LINKS = [`Акустические гитары`, `Классические гитары`, `Электрогитары`, `Бас-гитары`, `Акулеле`];
 export const INFO_LINKS = [`Где купить?`, `Блог`, `Вопрос - ответ`, `Возврат`, `Сервис-центры`];
@@ -133,6 +134,15 @@ export const PromoCode = {
   SUPERGITARA: `SUPERGITARA`,
   GITARA2020: `GITARA2020`
 }
+
+export const PromoCodeValue = {
+  GITARAHIT: 10,
+  SUPERGITARA: 700,
+  GITARA2020: {
+    min: 3500,
+    max: 30
+  }
+};
 
 export const StringsAllowedForType = {
   [TitleByType.ACOUSTIC]: [

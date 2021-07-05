@@ -1,4 +1,4 @@
-import {AmountUpdateType, PromoCode} from './const';
+import {AmountUpdateType, PromoCode, PromoCodeValue, MAX_GUITARS} from './const';
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
@@ -74,7 +74,7 @@ export const removeItem = (data, item) => {
 export const getUpdatedAmount = (data, item, type, value = item.amount) => {
   switch (true) {
     case (type === AmountUpdateType.INC):
-      const currentAmount = (value + 1) <= 99 ? ++value : value;
+      const currentAmount = (value + 1) <= MAX_GUITARS ? ++value : value;
 
       return [
         ...data.slice(0, data.indexOf(item)),
@@ -87,7 +87,7 @@ export const getUpdatedAmount = (data, item, type, value = item.amount) => {
         extend(item, {amount: --value}),
         ...data.slice(data.indexOf(item) + 1)
       ];
-    case (type === AmountUpdateType.ADD) && (value > 0 && value <= 99):
+    case (type === AmountUpdateType.ADD) && (value > 0 && value <= MAX_GUITARS):
       return [
         ...data.slice(0, data.indexOf(item)),
         extend(item, {amount: value}),
@@ -106,11 +106,11 @@ export const getCurrentTotalAmount = (data, promoCode) => {
 
   switch (true) {
     case currentPromo === PromoCode.GITARAHIT:
-      return value - (value / 100 * 10);
+      return value - (value / 100 * PromoCodeValue.GITARAHIT);
     case currentPromo === PromoCode.SUPERGITARA:
-      return value - 700;
+      return value - PromoCodeValue.SUPERGITARA;
     case currentPromo === PromoCode.GITARA2020:
-      return (value / 100 * 30) > 3500 ? (value - 3500) : value - (value / 100 * 30);
+      return (value / 100 * PromoCodeValue.GITARA2020.max) > PromoCodeValue.GITARA2020.min ? (value - PromoCodeValue.GITARA2020.min) : value - (value / 100 * PromoCodeValue.GITARA2020.max);
     default:
       return value;
   }
