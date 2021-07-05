@@ -1,5 +1,5 @@
 import {extend} from '../../../utils';
-import {ActionType} from '../../../const';
+import {ActionType, STORE_BASKET_NAME, STORE_PROMO_CODE_NAME} from '../../../const';
 
 const {
   CHANGE_BASKET,
@@ -8,14 +8,17 @@ const {
 } = ActionType;
 
 const initialState = {
-  basket: [],
+  basket: localStorage[STORE_BASKET_NAME] ?
+    JSON.parse(localStorage[STORE_BASKET_NAME]) : [],
   totalCost: 0,
-  promoCode: ``
+  promoCode: localStorage[STORE_PROMO_CODE_NAME] ?
+    JSON.parse(localStorage[STORE_PROMO_CODE_NAME]) : ``,
 };
 
 const basket = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_BASKET:
+      localStorage[STORE_BASKET_NAME] = JSON.stringify(action.payload);
       return extend(state, {
         basket: action.payload,
       });
@@ -24,6 +27,7 @@ const basket = (state = initialState, action) => {
         totalCost: action.payload,
       });
     case CHANGE_PROMO_CODE:
+      localStorage[STORE_PROMO_CODE_NAME] = JSON.stringify(action.payload);
       return extend(state, {
         promoCode: action.payload,
       });

@@ -45,7 +45,9 @@ const BasketScreen = ({
     setError(false);
   };
 
-  const handlePromoButtonClick = () => {
+  const handlePromoButtonClick = (evt) => {
+    evt.preventDefault();
+
     if (code.length) {
       const isValid = PromoCode.hasOwnProperty(getUppercaseText(code));
 
@@ -69,7 +71,7 @@ const BasketScreen = ({
         <section className="basket">
           {
             !basketData.length ? <p style={{marginTop: `50px`}}>Корзина пуста</p> :
-              <form className="basket__form" action="#">
+              <form className="basket__form" action="#" onSubmit={handlePromoButtonClick}>
                 <ul className="basket__list">
                   {
                     basketData.map(({id, amount}) => {
@@ -98,8 +100,10 @@ const BasketScreen = ({
                     <h3 className="promo-code__title">Промокод на скидку</h3>
                     <p className="promo-code__description">Введите свой промокод, если он у вас есть.</p>
                     <div className={`promo-code__wrapper${error && code ? ` promo-code__wrapper--error` : ``}`}>
+                      <label className="visually-hidden" htmlFor="promoCode">Введите промокод</label>
                       <input
                         className="promo-code__input"
+                        id="promoCode"
                         type="text"
                         value={code}
                         placeholder={getUppercaseText(promoCode)}
@@ -107,9 +111,8 @@ const BasketScreen = ({
                       />
                       <button
                         className="promo-code__button"
-                        type="button"
+                        type="submit"
                         aria-label="Применить купон"
-                        onClick={handlePromoButtonClick}
                         disabled={!code}
                       >
                         Применить купон

@@ -5,6 +5,12 @@ import {ReactComponent as FacebookIcon} from './assets/img/svg/icon-facebook.svg
 import {ReactComponent as InstagramIcon} from './assets/img/svg/icon-instagram.svg';
 import {ReactComponent as TwitterIcon} from './assets/img/svg/icon-twitter.svg';
 
+export const STORE_BASKET_PREFIX = `guitar-shop-localstorage-basket`;
+export const STORE_PROMO_CODE_PREFIX = `guitar-shop-localstorage-promo-code`;
+export const STORE_VERSION = `v1`;
+export const STORE_BASKET_NAME = `${STORE_BASKET_PREFIX}-${STORE_VERSION}`;
+export const STORE_PROMO_CODE_NAME = `${STORE_PROMO_CODE_PREFIX}-${STORE_VERSION}`;
+
 export const CARDS_PER_PAGE = 9;
 export const FIRST_PAGE = 0;
 export const RATING_STARS = [1, 2, 3, 4, 5];
