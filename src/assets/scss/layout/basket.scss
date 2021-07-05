@@ -6,10 +6,10 @@
 .basket__item {
   position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: flex-start;
-  padding-top: 25px;
-  margin-bottom: 20px;
+  padding-top: 24px;
+  margin-bottom: 17px;
 
   &:first-child::before {
     position: absolute;
@@ -35,6 +35,7 @@
 .basket__description-wrapper {
   display: flex;
   flex-direction: column;
+  width: 260px;
   margin-top: -2px;
   margin-left: 69px;
 }
@@ -47,6 +48,7 @@
 }
 
 .basket__fieldset {
+  width: 109px;
   margin-top: 18px;
   margin-left: 87px;
   border: none;
@@ -75,19 +77,24 @@
 
 .basket__price {
   align-self: center;
-  margin-top: 4px;
-  margin-left: 96px;
+  width: 120px;
+  margin-left: 61px;
   font-size: 20px;
   line-height: 15px;
   letter-spacing: 0.05em;
+  text-align: end;
 
   &--total {
     @include base-font($bold);
-    margin-left: 84px;
+    width: 142px;
+    margin-left: 4px;
+    margin-right: -4px;
+    text-align: right;
   }
 
   &--submit-total {
     @include base-font($bold);
+    width: auto;
     margin-right: -49px;
     margin-left: 0;
     letter-spacing: 0.06em;
@@ -106,8 +113,9 @@
   cursor: pointer;
 
   &--delete {
-    margin-top: -7px;
-    margin-left: -4px;
+    position: absolute;
+    top: 18px;
+    left: -4px;
     border: none;
   }
 
