@@ -10,7 +10,7 @@ import {extend, getCurrentFilters} from '../../utils';
 const FilterCheckbox = ({id, nameFilter, value, isChecked, labelTitle, otherFilters, setOtherFilters, disabled = false}) => {
   const handleOtherFiltersChange = ({name, value, checked}) => {
     const currentValue = name === OtherFilterName.TYPE ? value : +value;
-    console.log(isChecked, disabled)
+
     if (checked) {
       switch (true) {
         case nameFilter === TypeOtherFilters.TYPE:

@@ -6,13 +6,14 @@ import {getSortType, getSortDirection} from '../../store/selectors';
 import {setSortType, setSortDirection} from '../../store/action';
 import {DirectionSort, TypeSort} from '../../const';
 
-const SortButton = ({children, className, id, disabled, onClick}) => {
+const SortButton = ({children, className, id, disabled, onClick, ariaLabel}) => {
   return (
     <button
       className={className}
       id={id}
       disabled={disabled}
       onClick={onClick}
+      aria-label={ariaLabel}
     >
       {children}
     </button>
@@ -39,6 +40,7 @@ const Sort = ({type, direction, setType, setDirection}) => {
           id={TypeSort.PRICE}
           disabled={type === TypeSort.PRICE}
           onClick={handleTypeClick}
+          ariaLabel={`Сортировка по цене`}
         >
           по цене
         </SortButton>
@@ -47,6 +49,7 @@ const Sort = ({type, direction, setType, setDirection}) => {
           id={TypeSort.COMMENTS}
           disabled={type === TypeSort.COMMENTS}
           onClick={handleTypeClick}
+          ariaLabel={`Сортировка по популярности`}
         >
           по популярности
         </SortButton>
@@ -57,6 +60,7 @@ const Sort = ({type, direction, setType, setDirection}) => {
           id={DirectionSort.INC}
           disabled={direction === DirectionSort.INC}
           onClick={handleDirectionClick}
+          ariaLabel={`Сортировка по возрастанию`}
         >
           <ArrowIcon className="sort__svg" />
         </SortButton>
@@ -65,6 +69,7 @@ const Sort = ({type, direction, setType, setDirection}) => {
           id={DirectionSort.DESC}
           disabled={direction === DirectionSort.DESC}
           onClick={handleDirectionClick}
+          ariaLabel={`по убыванию`}
         >
           <ArrowIcon className="sort__svg" />
         </SortButton>

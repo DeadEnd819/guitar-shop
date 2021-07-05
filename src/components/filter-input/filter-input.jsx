@@ -15,7 +15,6 @@ const FilterInput = ({type, labelTitle, filterPrice, defaultPrice, setValue}) =>
     setPrice(filterPrice[type])
   }, [filterPrice, type, setPrice]);
 
-
   const handlePriceChange = useCallback((newPrice) => {
     setValue(extend(filterPrice, newPrice));
   }, [filterPrice, setValue]);

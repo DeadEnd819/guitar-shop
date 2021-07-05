@@ -7,13 +7,13 @@ import {setChangeProductModalOpen} from '../../store/action';
 import {AmountUpdateType} from '../../const';
 import {capitalizeFirstLetter, getUppercaseText, splittingDigits} from '../../utils';
 
-
 const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, openModal, onAmountChange}) => {
   const onDecrementClick = () => {
     if ((amount - 1) > 0) {
       onAmountChange(id, AmountUpdateType.DEC)
       return;
     }
+
     openModal(id);
   };
 

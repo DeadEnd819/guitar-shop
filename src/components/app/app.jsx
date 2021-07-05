@@ -12,15 +12,9 @@ const App = () => {
         <Route exact path={AppRoute.ROOT}>
           <Redirect to={AppRoute.CATALOG} />
         </Route>
-        {/*<Route exact path={AppRoute.CATALOG}>*/}
-        {/*  <CatalogScreen title="Guitar Shop | Каталог" />*/}
-        {/*</Route>*/}
         <Route exact path={AppRoute.CATALOG} render={({location}) => (
           <CatalogScreen title="Guitar Shop | Каталог" pathname={location.pathname} />
         )} />
-        {/*<Route exact path={AppRoute.BASKET}>*/}
-        {/*  <BasketScreen title="Guitar Shop | Оформляем" />*/}
-        {/*</Route>*/}
         <Route exact path={AppRoute.BASKET} render={({location}) => (
           <BasketScreen title="Guitar Shop | Оформляем" pathname={location.pathname} />
         )} />

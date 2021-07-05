@@ -1,9 +1,30 @@
 import {ReactComponent as MapIcon} from './assets/img/svg/icon-map.svg';
 import {ReactComponent as SearchIcon} from './assets/img/svg/icon-search.svg';
 import {ReactComponent as BasketIcon} from './assets/img/svg/icon-basket.svg';
+import {ReactComponent as FacebookIcon} from './assets/img/svg/icon-facebook.svg';
+import {ReactComponent as InstagramIcon} from './assets/img/svg/icon-instagram.svg';
+import {ReactComponent as TwitterIcon} from './assets/img/svg/icon-twitter.svg';
 
 export const CARDS_PER_PAGE = 9;
+export const FIRST_PAGE = 0;
 export const RATING_STARS = [1, 2, 3, 4, 5];
+
+export const CATALOG_LINKS = [`Акустические гитары`, `Классические гитары`, `Электрогитары`, `Бас-гитары`, `Акулеле`];
+export const INFO_LINKS = [`Где купить?`, `Блог`, `Вопрос - ответ`, `Возврат`, `Сервис-центры`];
+export const SOCIAL_LINKS = [
+  {
+    ariaLabel: `Facebook`,
+    icon: FacebookIcon
+  },
+  {
+    ariaLabel: `Instagram`,
+    icon: InstagramIcon
+  },
+  {
+    ariaLabel: `Twitter`,
+    icon: TwitterIcon
+  },
+];
 
 export const AppRoute = {
   ROOT: `/`,

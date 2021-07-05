@@ -58,6 +58,7 @@ const BasketScreen = ({
         setCode(``);
         return;
       }
+
       setError(true);
     }
   };
@@ -118,7 +119,8 @@ const BasketScreen = ({
                 </fieldset>
                 <div className="basket__submit-wrapper">
                   <span className="basket__price basket__price--submit-total">Всего: {splittingDigits(totalCost)} &#8381;</span>
-                  <button className="basket__button-submit" type="button" aria-label="Оформить заказ">Оформить заказ</button>
+                  {/*eslint-disable-next-line*/}
+                  <a className="basket__button-submit" href="#" aria-label="Оформить заказ">Оформить заказ</a>
                 </div>
               </div>
             </form>

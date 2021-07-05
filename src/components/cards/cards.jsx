@@ -3,11 +3,9 @@ import {connect} from 'react-redux';
 import CardsItem from '../cards-item/cards-item';
 import Paginate from '../paginate/paginate';
 import Sort from '../sort/sort';
-import {CARDS_PER_PAGE} from '../../const';
+import {CARDS_PER_PAGE, FIRST_PAGE} from '../../const';
 import {getFilteredByPrice} from '../../store/selectors';
 import {guitarsData} from '../../prop-types/prop-types';
-
-const FIRST_PAGE = 0;
 
 const Cards = ({getData}) => {
   const [pageNumber, setPageNumber] = useState(FIRST_PAGE);
@@ -27,7 +25,6 @@ const Cards = ({getData}) => {
       {
         !getData.length ? <p style={{margin: 'auto'}}>Товара нет в наличии</p> :
           <>
-
             <ul className="cards__list">
               {
                 getData
