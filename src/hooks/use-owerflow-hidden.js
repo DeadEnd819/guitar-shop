@@ -9,5 +9,5 @@ export const useOverflowHidden = (flag = true) => {
         document.body.style.overflow = `auto`;
       };
     }
-  },[flag]);
+  }, [flag]);
 };

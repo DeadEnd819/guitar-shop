@@ -12,7 +12,7 @@ const FilterInput = ({type, labelTitle, filterPrice, defaultPrice, setValue}) =>
   const [price, setPrice] = useState(0);
 
   useEffect(() => {
-    setPrice(filterPrice[type])
+    setPrice(filterPrice[type]);
   }, [filterPrice, type, setPrice]);
 
   const handlePriceChange = useCallback((newPrice) => {
@@ -43,7 +43,7 @@ const FilterInput = ({type, labelTitle, filterPrice, defaultPrice, setValue}) =>
         onFocus={() => setFocus(true)}
         onBlur={handleBlurChange}
         onChange={(evt) => {
-          setPrice(+evt.target.value)
+          setPrice(+evt.target.value);
         }}
       />
       <label className="visually-hidden" htmlFor={type}>{labelTitle}</label>

@@ -12,7 +12,7 @@ const GUITARS_TO_REMOVE = 0;
 const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, openModal, onAmountChange}) => {
   const onDecrementClick = () => {
     if ((amount - 1) > GUITARS_TO_REMOVE) {
-      onAmountChange(id, AmountUpdateType.DEC)
+      onAmountChange(id, AmountUpdateType.DEC);
       return;
     }
 

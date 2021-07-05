@@ -29,7 +29,7 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
     if (evt.target.id !== PaginateButton.MORE) {
       onChangePage(+evt.target.id);
     }
-  }
+  };
 
   const paginateItems = [
     {
@@ -57,7 +57,7 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
       id: activePage - 1,
       key: `left`,
       className: ``,
-      title: near -1,
+      title: near - 1,
       isHidden: !(activePage >= 2 && !(activePage === pageCount - 1)),
     },
     {

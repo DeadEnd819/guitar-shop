@@ -16,7 +16,7 @@ const BREADCRUMB_LIST = [
     title: `Оформляем`,
     href: AppRoute.BASKET
   },
-]
+];
 
 const Main = ({title, children, pathname, modifier}) => {
   let isActive = false;
@@ -39,7 +39,7 @@ const Main = ({title, children, pathname, modifier}) => {
                 :
                 <li className="breadcrumb__item" key={title + index}>
                   {title}
-                </li>
+                </li>;
             }
             return null;
           })}

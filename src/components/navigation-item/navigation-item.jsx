@@ -29,7 +29,7 @@ NavigationItem.propTypes = {
     icon: PropTypes.object,
   }).isRequired,
   modifier: PropTypes.string,
-  baskedLength: PropTypes.number
+  basketLength: PropTypes.number
 };
 
 const mapStateToProps = (store) => ({

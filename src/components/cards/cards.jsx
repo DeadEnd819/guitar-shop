@@ -14,16 +14,16 @@ const Cards = ({getData}) => {
   const pageCount = Math.ceil(getData.length / CARDS_PER_PAGE);
 
   useEffect(() => {
-   if ((pageNumber + 1) > pageCount) {
-     setPageNumber(FIRST_PAGE);
-   }
+    if ((pageNumber + 1) > pageCount) {
+      setPageNumber(FIRST_PAGE);
+    }
   }, [pageNumber, pageCount]);
 
   return (
     <section className="cards">
       <Sort/>
       {
-        !getData.length ? <p style={{margin: 'auto'}}>Товара нет в наличии</p> :
+        !getData.length ? <p style={{margin: `auto`}}>Товара нет в наличии</p> :
           <>
             <ul className="cards__list">
               {

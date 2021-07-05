@@ -20,7 +20,7 @@ import {
 
 const Filter = ({getData, otherFilters, setPrice}) => {
   useEffect(() => {
-    setPrice(getMinMaxPrice(getData))
+    setPrice(getMinMaxPrice(getData));
   }, [getData, setPrice]);
 
   const getDisabledByType = (filters, type) => {

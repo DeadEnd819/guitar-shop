@@ -65,68 +65,68 @@ const BasketScreen = ({
   return (
     <>
       <Header />
-        <Main title={`Корзина`} pathname={pathname} modifier={`basket`}>
-          <section className="basket">
-            {
-              !basketData.length ? <p style={{marginTop: `50px`}}>Корзина пуста</p> :
+      <Main title={`Корзина`} pathname={pathname} modifier={`basket`}>
+        <section className="basket">
+          {
+            !basketData.length ? <p style={{marginTop: `50px`}}>Корзина пуста</p> :
               <form className="basket__form" action="#">
-              <ul className="basket__list">
-                {
-                  basketData.map(({id, amount}) => {
-                    const {vendorCode, name, type, strings, price, img} = getById(getData, id);
+                <ul className="basket__list">
+                  {
+                    basketData.map(({id, amount}) => {
+                      const {vendorCode, name, type, strings, price, img} = getById(getData, id);
 
-                    return (
-                      <BasketItem
-                        key={id + vendorCode}
-                        id={id}
-                        vendorCode={vendorCode}
-                        name={name}
-                        type={type}
-                        strings={strings}
-                        price={price}
-                        img={img}
-                        amount={amount}
-                        onAmountChange={handleAmountChange}
+                      return (
+                        <BasketItem
+                          key={id + vendorCode}
+                          id={id}
+                          vendorCode={vendorCode}
+                          name={name}
+                          type={type}
+                          strings={strings}
+                          price={price}
+                          img={img}
+                          amount={amount}
+                          onAmountChange={handleAmountChange}
+                        />
+                      );
+                    })
+                  }
+                </ul>
+                <div className="basket__bottom-wrapper">
+                  <fieldset className="basket__promo-code promo-code">
+                    <legend className="visually-hidden">Поле ввода промокода</legend>
+                    <h3 className="promo-code__title">Промокод на скидку</h3>
+                    <p className="promo-code__description">Введите свой промокод, если он у вас есть.</p>
+                    <div className={`promo-code__wrapper${error && code ? ` promo-code__wrapper--error` : ``}`}>
+                      <input
+                        className="promo-code__input"
+                        type="text"
+                        value={code}
+                        placeholder={getUppercaseText(promoCode)}
+                        onChange={handlePromoInputChange}
                       />
-                    );
-                  })
-                }
-              </ul>
-              <div className="basket__bottom-wrapper">
-                <fieldset className="basket__promo-code promo-code">
-                  <legend className="visually-hidden">Поле ввода промокода</legend>
-                  <h3 className="promo-code__title">Промокод на скидку</h3>
-                  <p className="promo-code__description">Введите свой промокод, если он у вас есть.</p>
-                  <div className={`promo-code__wrapper${error && code ? ` promo-code__wrapper--error` : ``}`}>
-                    <input
-                      className="promo-code__input"
-                      type="text"
-                      value={code}
-                      placeholder={getUppercaseText(promoCode)}
-                      onChange={handlePromoInputChange}
-                    />
-                    <button
-                      className="promo-code__button"
-                      type="button"
-                      aria-label="Применить купон"
-                      onClick={handlePromoButtonClick}
-                      disabled={!code}
-                    >
-                      Применить купон
-                    </button>
+                      <button
+                        className="promo-code__button"
+                        type="button"
+                        aria-label="Применить купон"
+                        onClick={handlePromoButtonClick}
+                        disabled={!code}
+                      >
+                        Применить купон
+                      </button>
+                    </div>
+                  </fieldset>
+                  <div className="basket__submit-wrapper">
+                    <span className="basket__price basket__price--submit-total">Всего: {splittingDigits(totalCost)} &#8381;</span>
+                    {/*eslint-disable-next-line*/}
+                    <a className="basket__button-submit" href="#" aria-label="Оформить заказ">Оформить заказ</a>
                   </div>
-                </fieldset>
-                <div className="basket__submit-wrapper">
-                  <span className="basket__price basket__price--submit-total">Всего: {splittingDigits(totalCost)} &#8381;</span>
-                  {/*eslint-disable-next-line*/}
-                  <a className="basket__button-submit" href="#" aria-label="Оформить заказ">Оформить заказ</a>
                 </div>
-              </div>
-            </form>
-            }
-          </section>
-          {getChangeProductModalData && <ChangeProduct isAdd={false}/>}
-        </Main>
+              </form>
+          }
+        </section>
+        {getChangeProductModalData && <ChangeProduct isAdd={false}/>}
+      </Main>
       <Footer />
     </>
   );

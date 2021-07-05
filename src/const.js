@@ -117,23 +117,23 @@ export const LabelTitle = {
 export const OtherFilterName = {
   TYPE: `type`,
   STRINGS: `strings`,
-}
+};
 
 export const TypeSort = {
   PRICE: `price`,
   COMMENTS: `comments`,
-}
+};
 
 export const DirectionSort = {
   INC: `inc`,
   DESC: `decs`,
-}
+};
 
 export const PromoCode = {
   GITARAHIT: `GITARAHIT`,
   SUPERGITARA: `SUPERGITARA`,
   GITARA2020: `GITARA2020`
-}
+};
 
 export const PromoCodeValue = {
   GITARAHIT: 10,

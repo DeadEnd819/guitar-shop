@@ -34,7 +34,7 @@ const FilterCheckbox = ({id, nameFilter, value, isChecked, labelTitle, otherFilt
         default:
           return null;
       }
-      return;
+      return null;
     }
 
     setOtherFilters(extend(otherFilters, {

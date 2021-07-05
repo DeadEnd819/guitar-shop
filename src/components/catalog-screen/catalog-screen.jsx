@@ -17,14 +17,14 @@ const CatalogScreen = ({title, pathname, getChangeProductModalData, getConfirmat
   return (
     <>
       <Header />
-        <Main title={`Каталог гитар`} pathname={pathname}>
-          <div className="main__content-wrapper">
-            <Filter />
-            <Cards />
-          </div>
-          {getChangeProductModalData && <ChangeProduct isAdd={true}/>}
-          {getConfirmationModalFlag && <Confirmation/>}
-        </Main>
+      <Main title={`Каталог гитар`} pathname={pathname}>
+        <div className="main__content-wrapper">
+          <Filter />
+          <Cards />
+        </div>
+        {getChangeProductModalData && <ChangeProduct isAdd={true}/>}
+        {getConfirmationModalFlag && <Confirmation/>}
+      </Main>
       <Footer />
     </>
   );
