@@ -17,7 +17,6 @@ const FooterItem = ({ariaLabel, children}) => {
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer__mask" />
       <Wrapper name={`footer`}>
         <div className="footer__content-wrapper footer__content-wrapper--left">
           <Logo block={`footer`} />

@@ -47,15 +47,29 @@
 }
 
 .footer__wrapper {
+  position: initial;
   display: flex;
   justify-content: flex-start;
   padding-top: 60px;
   padding-bottom: 52px;
   background-color: $footer-background-color;
-  z-index: 3;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: $footer-background-color;
+    z-index: 3;
+  }
 }
 
 .footer__content-wrapper {
+  z-index: 4;
+
   &:not(&--left) {
     margin-top: 7px;
   }
