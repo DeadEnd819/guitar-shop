@@ -4,30 +4,36 @@ import {connect} from 'react-redux';
 import {ReactComponent as StarIcon} from '../../assets/img/svg/icon-star.svg';
 import {ReactComponent as ButtonIcon} from '../../assets/img/svg/icon-cart-button.svg';
 import {guitarImg} from '../../prop-types/prop-types';
-import {splittingDigits} from '../../utils';
 import {setChangeProductModalOpen} from '../../store/action';
+import {splittingDigits} from '../../utils';
+import {RATING_STARS} from '../../const';
 
 const CardsItem = ({id, name, comments, price, img, openModal}) => {
   return (
     <li className="cards__item">
-      <img className="cards__img" src={img.big} width="68" height="190" alt="Гитара"/>
+      <picture>
+        <source
+          type="image/webp"
+          srcSet={`${img.webp} 1x, ${img.webpRetina} 2x`}
+        />
+        <img
+          className="cards__img"
+          src={img.big}
+          srcSet={`${img.retinaBig} 2x`}
+          width="68"
+          height="190"
+          alt={name}
+        />
+      </picture>
       <div className="cards__rating rating">
         <ul className="rating__list">
-          <li className="rating__item">
-            <StarIcon />
-          </li>
-          <li className="rating__item">
-            <StarIcon />
-          </li>
-          <li className="rating__item">
-            <StarIcon />
-          </li>
-          <li className="rating__item">
-            <StarIcon />
-          </li>
-          <li className="rating__item">
-            <StarIcon />
-          </li>
+          {
+            RATING_STARS.map((item) =>
+              <li className="rating__item" key={item}>
+                <StarIcon />
+              </li>
+            )
+          }
         </ul>
         <span className="rating__counter">{comments}</span>
       </div>

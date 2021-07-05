@@ -9,7 +9,7 @@ import {AppRoute} from '../../const';
 const Confirmation = ({closeModal}) => {
   return (
     <ModalWrapper block={`Confirmation`} title={`Товар успешно добавлен в корзину`} onModalClose={closeModal}>
-      <div className="confirmation__wrapper">
+      <div className="confirmation">
         <Link
           to={AppRoute.BASKET}
           className="confirmation__button confirmation__button--basket"

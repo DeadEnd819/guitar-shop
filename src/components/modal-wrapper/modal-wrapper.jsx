@@ -18,7 +18,7 @@ const ModalWrapper = ({children, title, onModalClose}) => {
     <div className="modal" onClick={handleBlockClick}>
       <div className="modal__content">
         <div className="modal__wrapper">
-          <h3 className="modal__title">{title}</h3>
+          <h2 className="modal__title">{title}</h2>
           <button
             className="modal__button-close"
             type="button"

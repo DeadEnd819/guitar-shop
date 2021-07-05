@@ -27,9 +27,22 @@ const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, op
       >
         <CloseIcon />
       </button>
-      <img className="basket__img" src={img.small} width="48" height="124" alt="Гитара"/>
+      <picture>
+        <source
+          type="image/webp"
+          srcSet={`${img.webpSmall} 1x, ${img.webpRetinaSmall} 2x`}
+        />
+        <img
+          className="basket__img"
+          src={img.small}
+          srcSet={`${img.retinaSmall} 2x`}
+          width="48"
+          height="124"
+          alt={name}
+        />
+      </picture>
       <div className="basket__description-wrapper">
-        <h3 className="basket__title">{getUppercaseText(type)} {getUppercaseText(name)}</h3>
+        <h2 className="basket__title">{getUppercaseText(type)} {getUppercaseText(name)}</h2>
         <span className="basket__description">Артикул: {vendorCode}</span>
         <span className="basket__description">{capitalizeFirstLetter(type)}, {strings} струнная</span>
       </div>

@@ -46,8 +46,21 @@ const ChangeProduct = ({isAdd, currentCard, basketData, closeModal, addToBasket,
       title={isAdd ? `Добавить товар в корзину` : `Удалить этот товар?`}
       onModalClose={closeModal}
     >
-      <div className="change-product__wrapper">
-        <img className="change-product__img" src={img.small} width="48" height="124" alt="Гитара"/>
+      <div className="change-product">
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`${img.webpSmall} 1x, ${img.webpRetinaSmall} 2x`}
+          />
+          <img
+            className="change-product__img"
+            src={img.small}
+            srcSet={`${img.retinaSmall} 2x`}
+            width="48"
+            height="124"
+            alt={name}
+          />
+        </picture>
         <div className="change-product__details-wrapper">
           <p className="change-product__name">{getUppercaseText(name)}</p>
           <p className="change-product__description">Артикул: {vendorCode}</p>

@@ -24,7 +24,7 @@ const Main = ({title, children, pathname, modifier}) => {
   return (
     <main className={`main${modifier ? ` main--${modifier}` : ``}`}>
       <div className="main__wrapper container">
-        <h2 className="main__title">{title}</h2>
+        <h1 className="main__title">{title}</h1>
         <ul className="breadcrumb">
           {BREADCRUMB_LIST.map(({title, href}, index) => {
             if (!isActive) {

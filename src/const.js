@@ -3,6 +3,7 @@ import {ReactComponent as SearchIcon} from './assets/img/svg/icon-search.svg';
 import {ReactComponent as BasketIcon} from './assets/img/svg/icon-basket.svg';
 
 export const CARDS_PER_PAGE = 9;
+export const RATING_STARS = [1, 2, 3, 4, 5];
 
 export const AppRoute = {
   ROOT: `/`,
