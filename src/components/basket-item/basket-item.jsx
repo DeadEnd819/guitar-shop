@@ -7,9 +7,11 @@ import {setChangeProductModalOpen} from '../../store/action';
 import {AmountUpdateType} from '../../const';
 import {capitalizeFirstLetter, getUppercaseText, splittingDigits} from '../../utils';
 
+const GUITARS_TO_REMOVE = 0;
+
 const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, openModal, onAmountChange}) => {
   const onDecrementClick = () => {
-    if ((amount - 1) > 0) {
+    if ((amount - 1) > GUITARS_TO_REMOVE) {
       onAmountChange(id, AmountUpdateType.DEC)
       return;
     }

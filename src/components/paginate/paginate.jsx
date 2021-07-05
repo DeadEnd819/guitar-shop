@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const PaginateButton = {
+  BACK: `back`,
+  ONWARD: `onward`,
+  MORE: `more`,
+};
+
 const Paginate = ({activePage, pageCount, onChangePage}) => {
   const isFirstActive = activePage === 0;
   const isLastActive = activePage + 1 === pageCount;
@@ -9,22 +15,29 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
 
   const handleItemClick = (evt) => {
     evt.preventDefault();
-    onChangePage(+evt.target.id);
+
+    if (evt.target.id === PaginateButton.BACK && !isFirstActive) {
+      onChangePage(activePage - 1);
+      return;
+    }
+
+    if (evt.target.id === PaginateButton.ONWARD && !isLastActive) {
+      onChangePage(activePage + 1);
+      return;
+    }
+
+    if (evt.target.id !== PaginateButton.MORE) {
+      onChangePage(+evt.target.id);
+    }
   }
 
   const paginateItems = [
     {
-      id: `back`,
+      id: PaginateButton.BACK,
       key: `btnBack`,
       className: ` paginate__link--back`,
       title: `Назад`,
       isHidden: isFirstActive,
-      handleItemClick(evt) {
-        evt.preventDefault();
-        if (!isFirstActive) {
-          onChangePage(activePage - 1);
-        }
-      },
     },
     {
       id: 0,
@@ -32,10 +45,9 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
       className: `${activePage === 0 ? ` paginate__link--active` : ``}`,
       title: `1`,
       isHidden: false,
-      handleItemClick,
     },
     {
-      id: `more`,
+      id: PaginateButton.MORE,
       key: `more-first`,
       className: ` paginate__link--more`,
       title: `...`,
@@ -47,7 +59,6 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
       className: ``,
       title: near -1,
       isHidden: !(activePage >= 2 && !(activePage === pageCount - 1)),
-      handleItemClick,
     },
     {
       id: (near - 1),
@@ -55,7 +66,6 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
       className: `${activePage === (near - 1) ? ` paginate__link--active` : ``}`,
       title: near,
       isHidden: !(pageCount > 2),
-      handleItemClick,
     },
     {
       id: activePage + 1,
@@ -63,10 +73,9 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
       className: ``,
       title: near + 1,
       isHidden: activePage === 0 || pageCount <= 3 || (activePage >= pageCount - 2),
-      handleItemClick,
     },
     {
-      id: `more`,
+      id: PaginateButton.MORE,
       key: `more-last`,
       className: ` paginate__link--more`,
       title: `...`,
@@ -78,27 +87,20 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
       className: `${activePage === (pageCount - 1) ? ` paginate__link--active` : ``}`,
       title: pageCount,
       isHidden: !(pageCount > 1),
-      handleItemClick,
     },
     {
-      id: `onward`,
+      id: PaginateButton.ONWARD,
       key: `onward`,
       className: ` paginate__link--onward${isLastActive ? ` paginate__link--disabled` : ``}`,
       title: `Далее`,
       isHidden: false,
-      handleItemClick(evt) {
-        evt.preventDefault();
-        if (!isLastActive) {
-          onChangePage(activePage + 1);
-        }
-      },
     },
   ];
 
   return (
     <ul className="paginate">
       {
-        paginateItems.map(({id, key, className, title, isHidden, handleItemClick}) => {
+        paginateItems.map(({id, key, className, title, isHidden}) => {
           if (isHidden) {
             return null;
           }

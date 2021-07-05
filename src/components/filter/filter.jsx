@@ -12,8 +12,8 @@ import {
   TypeFilterByPrice,
   LabelTitle,
   TypeGuitar,
-  TypeStrings,
-  TypeFilterByStrings,
+  TypeString,
+  TypeFilterByString,
   TitleByType,
   OtherFilterName
 } from '../../const';
@@ -26,15 +26,15 @@ const Filter = ({getData, otherFilters, setPrice}) => {
   const getDisabledByType = (filters, type) => {
     switch (true) {
       case (type === TitleByType.ACOUSTIC):
-        return filters.strings.includes(TypeFilterByStrings.FOUR) &&
+        return filters.strings.includes(TypeFilterByString.FOUR) &&
           !filters.type.includes(TitleByType.ACOUSTIC) &&
           (filters.strings.length === 1);
       case (type === TitleByType.ELECTRIC):
-        return filters.strings.includes(TypeFilterByStrings.TWELVE) &&
+        return filters.strings.includes(TypeFilterByString.TWELVE) &&
           !filters.type.includes(TitleByType.ELECTRIC) &&
           (filters.strings.length === 1);
       case (type === TitleByType.UKULELE):
-        return !filters.strings.includes(TypeFilterByStrings.FOUR) &&
+        return !filters.strings.includes(TypeFilterByString.FOUR) &&
           !filters.type.includes(TitleByType.UKULELE) && (filters.strings.length);
       default:
         return false;
@@ -43,12 +43,12 @@ const Filter = ({getData, otherFilters, setPrice}) => {
 
   const getDisabledByStrings = (filters, strings) => {
     switch (true) {
-      case (strings === TypeFilterByStrings.FOUR):
+      case (strings === TypeFilterByString.FOUR):
         return filters.type.includes(TitleByType.ACOUSTIC) && (filters.type.length === 1);
-      case (strings === TypeFilterByStrings.SIX):
-      case (strings === TypeFilterByStrings.SEVEN):
+      case (strings === TypeFilterByString.SIX):
+      case (strings === TypeFilterByString.SEVEN):
         return filters.type.includes(TitleByType.UKULELE) && (filters.type.length === 1);
-      case (strings === TypeFilterByStrings.TWELVE):
+      case (strings === TypeFilterByString.TWELVE):
         return ((filters.type.includes(TitleByType.ELECTRIC) || filters.type.includes(TitleByType.UKULELE)) && (filters.type.length === 1)) ||
           (filters.type.includes(TitleByType.ELECTRIC) && filters.type.includes(TitleByType.UKULELE) && (filters.type.length === 2));
       default:
@@ -93,15 +93,15 @@ const Filter = ({getData, otherFilters, setPrice}) => {
         <fieldset className="filter__fieldset" title="Фильтр по количеству струн">
           <legend className="filter__legend">Количество струн</legend>
           {
-            Object.keys(TypeStrings).map((type, index) =>
+            Object.keys(TypeString).map((type, index) =>
               <FilterCheckbox
                 key={type + index}
                 id={type}
                 nameFilter={OtherFilterName.STRINGS}
-                value={TypeFilterByStrings[type]}
-                isChecked={otherFilters.strings.includes(TypeFilterByStrings[type])}
-                labelTitle={TypeFilterByStrings[type]}
-                disabled={getDisabledByStrings(otherFilters, TypeFilterByStrings[type])}
+                value={TypeFilterByString[type]}
+                isChecked={otherFilters.strings.includes(TypeFilterByString[type])}
+                labelTitle={TypeFilterByString[type]}
+                disabled={getDisabledByStrings(otherFilters, TypeFilterByString[type])}
               />
             )
           }

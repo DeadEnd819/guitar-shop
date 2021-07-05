@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {getOtherFilters} from '../../store/selectors';
 import {setOtherFilters} from '../../store/action';
 import {filters} from '../../prop-types/prop-types';
-import {OtherFilterName, TypeOtherFilters, StringsAllowedForTypes, TypesAllowedForStrings} from '../../const';
+import {OtherFilterName, TypeOtherFilter, StringsAllowedForType, TypesAllowedForString} from '../../const';
 import {extend, getCurrentFilters} from '../../utils';
 
 const FilterCheckbox = ({id, nameFilter, value, isChecked, labelTitle, otherFilters, setOtherFilters, disabled = false}) => {
@@ -13,22 +13,22 @@ const FilterCheckbox = ({id, nameFilter, value, isChecked, labelTitle, otherFilt
 
     if (checked) {
       switch (true) {
-        case nameFilter === TypeOtherFilters.TYPE:
+        case nameFilter === TypeOtherFilter.TYPE:
           setOtherFilters(extend(otherFilters, {
-            [TypeOtherFilters.TYPE]: [
+            [TypeOtherFilter.TYPE]: [
               ...otherFilters[name],
               currentValue
             ],
-            [TypeOtherFilters.STRINGS]: getCurrentFilters(otherFilters[TypeOtherFilters.STRINGS], StringsAllowedForTypes, currentValue),
+            [TypeOtherFilter.STRINGS]: getCurrentFilters(otherFilters[TypeOtherFilter.STRINGS], StringsAllowedForType, currentValue),
           }));
           break;
-        case nameFilter === TypeOtherFilters.STRINGS:
+        case nameFilter === TypeOtherFilter.STRINGS:
           setOtherFilters(extend(otherFilters, {
-            [TypeOtherFilters.STRINGS]: [
+            [TypeOtherFilter.STRINGS]: [
               ...otherFilters[name],
               currentValue
             ],
-            [TypeOtherFilters.TYPE]: getCurrentFilters(otherFilters[TypeOtherFilters.TYPE], TypesAllowedForStrings, currentValue),
+            [TypeOtherFilter.TYPE]: getCurrentFilters(otherFilters[TypeOtherFilter.TYPE], TypesAllowedForString, currentValue),
           }));
           break;
         default:

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Header from '../header/header';
@@ -9,11 +9,10 @@ import Filter from '../filter/filter';
 import ChangeProduct from '../change-product/change-product';
 import Confirmation from '../confirmation/confirmation';
 import {getChangeProductModalData, getConfirmationModalFlag} from "../../store/selectors";
+import {usePageTitle} from '../../hooks/use-page-title';
 
 const CatalogScreen = ({title, pathname, getChangeProductModalData, getConfirmationModalFlag}) => {
-  useEffect(()=>{
-    document.title = title;
-  }, [title]);
+  usePageTitle(title);
 
   return (
     <>

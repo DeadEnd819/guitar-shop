@@ -9,8 +9,9 @@ import BasketItem from '../basket-item/basket-item';
 import {basketData, guitarsData} from '../../prop-types/prop-types';
 import {getBasket, getChangeProductModalData, getData, getPromoCode, getTotalCost} from '../../store/selectors';
 import {setBasket, setPromoCode, setTotalCost} from '../../store/action';
-import {PromoCodes} from '../../const';
+import {PromoCode} from '../../const';
 import {getById, getCurrentTotalAmount, getUpdatedAmount, splittingDigits, getUppercaseText} from '../../utils';
+import {usePageTitle} from '../../hooks/use-page-title';
 
 const BasketScreen = ({
                         title,
@@ -26,10 +27,6 @@ const BasketScreen = ({
 }) => {
   const [code, setCode] = useState(``);
   const [error, setError] = useState(false);
-
-  useEffect(()=>{
-    document.title = title;
-  }, [title]);
 
   useEffect(()=>{
     setTotalCost(
@@ -50,7 +47,7 @@ const BasketScreen = ({
 
   const handlePromoButtonClick = () => {
     if (code.length) {
-      const isValid = PromoCodes.hasOwnProperty(getUppercaseText(code));
+      const isValid = PromoCode.hasOwnProperty(getUppercaseText(code));
 
       if (isValid) {
         setError(false);
@@ -62,6 +59,8 @@ const BasketScreen = ({
       setError(true);
     }
   };
+
+  usePageTitle(title);
 
   return (
     <>

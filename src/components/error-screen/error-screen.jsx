@@ -1,12 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
+import {usePageTitle} from '../../hooks/use-page-title';
 
 const ErrorScreen = ({title}) => {
-  useEffect(()=>{
-    document.title = title;
-  }, [title]);
+  usePageTitle(title);
 
   return (
     <div className="error">

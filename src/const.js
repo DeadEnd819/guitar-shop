@@ -52,6 +52,12 @@ export const Key = {
   ESC: `Esc`,
 };
 
+export const PageTitle = {
+  CATALOG: `Каталог`,
+  BASKET: `Оформляем`,
+  ERROR: `Страница не найдена`
+};
+
 export const AmountUpdateType = {
   INC: `INC`,
   DEC: `DEC`,
@@ -80,19 +86,19 @@ export const TypeFilterByPrice = {
   MAX: `max`,
 };
 
-export const TypeStrings = {
+export const TypeString = {
   FOUR: `FOUR`,
   SIX: `SIX`,
   SEVEN: `SEVEN`,
   TWELVE: `TWELVE`
 };
 
-export const TypeOtherFilters = {
+export const TypeOtherFilter = {
   TYPE: `type`,
   STRINGS: `strings`,
 };
 
-export const TypeFilterByStrings = {
+export const TypeFilterByString = {
   FOUR: 4,
   SIX: 6,
   SEVEN: 7,
@@ -122,42 +128,42 @@ export const DirectionSort = {
   DESC: `decs`,
 }
 
-export const PromoCodes = {
+export const PromoCode = {
   GITARAHIT: `GITARAHIT`,
   SUPERGITARA: `SUPERGITARA`,
   GITARA2020: `GITARA2020`
 }
 
-export const StringsAllowedForTypes = {
+export const StringsAllowedForType = {
   [TitleByType.ACOUSTIC]: [
-    TypeFilterByStrings.SIX,
-    TypeFilterByStrings.SEVEN,
-    TypeFilterByStrings.TWELVE
+    TypeFilterByString.SIX,
+    TypeFilterByString.SEVEN,
+    TypeFilterByString.TWELVE
   ],
   [TitleByType.ELECTRIC]: [
-    TypeFilterByStrings.FOUR,
-    TypeFilterByStrings.SIX,
-    TypeFilterByStrings.SEVEN
+    TypeFilterByString.FOUR,
+    TypeFilterByString.SIX,
+    TypeFilterByString.SEVEN
   ],
   [TitleByType.UKULELE]: [
-    TypeFilterByStrings.FOUR
+    TypeFilterByString.FOUR
   ],
 };
 
-export const TypesAllowedForStrings = {
-  [TypeFilterByStrings.FOUR]: [
+export const TypesAllowedForString = {
+  [TypeFilterByString.FOUR]: [
     TitleByType.ELECTRIC,
     TitleByType.UKULELE
   ],
-  [TypeFilterByStrings.SIX]: [
+  [TypeFilterByString.SIX]: [
     TitleByType.ACOUSTIC,
     TitleByType.ELECTRIC,
   ],
-  [TypeFilterByStrings.SEVEN]: [
+  [TypeFilterByString.SEVEN]: [
     TitleByType.ACOUSTIC,
     TitleByType.ELECTRIC,
   ],
-  [TypeFilterByStrings.TWELVE]: [
+  [TypeFilterByString.TWELVE]: [
     TitleByType.ACOUSTIC,
   ],
 };

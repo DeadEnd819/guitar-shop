@@ -15,6 +15,8 @@ import {
   getUpdatedAmount
 } from '../../utils';
 
+const GUITAR_INITIAL_COUNT = 1;
+
 const ChangeProduct = ({isAdd, currentCard, basketData, closeModal, addToBasket, removeFromBasket}) => {
   const {id, img, name, vendorCode, type, strings, price} = currentCard;
   const currentItemInBasket = getById(basketData, id);
@@ -27,7 +29,7 @@ const ChangeProduct = ({isAdd, currentCard, basketData, closeModal, addToBasket,
           id,
           vendorCode,
           price,
-          amount: 1
+          amount: GUITAR_INITIAL_COUNT
         }
       ]);
       return;

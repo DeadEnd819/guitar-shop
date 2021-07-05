@@ -1,4 +1,4 @@
-import {AmountUpdateType, PromoCodes} from './const';
+import {AmountUpdateType, PromoCode} from './const';
 
 export const extend = (a, b) => {
   return Object.assign({}, a, b);
@@ -105,11 +105,11 @@ export const getCurrentTotalAmount = (data, promoCode) => {
     .reduce((accumulator, value) => accumulator + value, 0);
 
   switch (true) {
-    case currentPromo === PromoCodes.GITARAHIT:
+    case currentPromo === PromoCode.GITARAHIT:
       return value - (value / 100 * 10);
-    case currentPromo === PromoCodes.SUPERGITARA:
+    case currentPromo === PromoCode.SUPERGITARA:
       return value - 700;
-    case currentPromo === PromoCodes.GITARA2020:
+    case currentPromo === PromoCode.GITARA2020:
       return (value / 100 * 30) > 3500 ? (value - 3500) : value - (value / 100 * 30);
     default:
       return value;
