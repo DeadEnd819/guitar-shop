@@ -1,5 +1,6 @@
 import {extend} from '../../../utils';
 import {ActionType, STORE_BASKET_NAME, STORE_PROMO_CODE_NAME} from '../../../const';
+import {basketMocks} from '../../../mocks';
 
 const {
   CHANGE_BASKET,
@@ -9,7 +10,7 @@ const {
 
 const initialState = {
   basket: localStorage[STORE_BASKET_NAME] ?
-    JSON.parse(localStorage[STORE_BASKET_NAME]) : [],
+    JSON.parse(localStorage[STORE_BASKET_NAME]) : basketMocks,
   totalCost: 0,
   promoCode: localStorage[STORE_PROMO_CODE_NAME] ?
     JSON.parse(localStorage[STORE_PROMO_CODE_NAME]) : ``,

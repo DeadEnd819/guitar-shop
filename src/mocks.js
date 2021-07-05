@@ -23,6 +23,21 @@ import ukuleleImgWebpRetina from './assets/img/webp/ukulele-guitar@2x.webp';
 import ukuleleImgWebpSmall from './assets/img/webp/ukulele-guitar-small.webp';
 import ukuleleImgWebpRetinaSmall from './assets/img/webp/ukulele-guitar-small@2x.webp';
 
+export const basketMocks = [
+  {
+    id: 1,
+    vendorCode: `SO757575`,
+    price: 17500,
+    amount: 1
+  },
+  {
+    id: 2,
+    vendorCode: `TK129049`,
+    price: 29500,
+    amount: 2
+  }
+];
+
 export const dataMocks = [
   {
     id: 1,
