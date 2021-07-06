@@ -59,8 +59,10 @@ const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, op
         >
           &ndash;
         </button>
+        <label className="visually-hidden" htmlFor={`count-${id}`}>Введите количество товара</label>
         <input
           className="basket__input"
+          id={`count-${id}`}
           type="number"
           placeholder={amount}
           value={amount}

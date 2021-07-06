@@ -21,21 +21,22 @@
 }
 
 .cards__item {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   width: 220px;
   min-height: 304px;
   padding: 14px 13px 20px 13px;
   border: 1px solid $line-color;
 }
 
+.cards__img {
+  display: block;
+  margin: 0 auto 5px auto;
+}
+
 .cards__buttons {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 8px;
+  margin-top: 13px;
 }
 
 .cards__button {
