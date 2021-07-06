@@ -14,7 +14,7 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
     isLastActive ? (pageCount - 1) : activePage + 1;
 
   const handleItemClick = (evt) => {
-    evt.preventDefault();
+    evt.preventDefault(evt.target.id);
 
     if (evt.target.id === PaginateButton.BACK && !isFirstActive) {
       onChangePage(activePage - 1);
@@ -26,7 +26,7 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
       return;
     }
 
-    if (evt.target.id !== PaginateButton.MORE) {
+    if (evt.target.id !== PaginateButton.MORE && evt.target.id !== PaginateButton.ONWARD) {
       onChangePage(+evt.target.id);
     }
   };
