@@ -87,7 +87,12 @@
   }
 
   &--catalog {
+    max-width: 123px;
     margin-right: 39px;
+  }
+
+  &--info {
+    max-width: 105px;
   }
 
   &--contacts {

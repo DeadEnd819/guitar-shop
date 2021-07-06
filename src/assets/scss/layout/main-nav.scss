@@ -29,12 +29,13 @@
     margin-right: 35px;
   }
 
-  &--user:nth-child(3) {
-    margin-right: 10px;
+  &--user:last-child {
+    margin-right: 17px;
   }
 }
 
 .main-nav__link {
+  position: relative;
   font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.08em;
@@ -56,6 +57,9 @@
 }
 
 .main-nav__link sup {
-  margin-left: 2px;
+  position: absolute;
+  top: 1px;
+  left: 15px;
+  text-align: left;
   color: $basket-counter-color;
 }
