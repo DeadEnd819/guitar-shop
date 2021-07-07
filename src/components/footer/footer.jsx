@@ -67,7 +67,7 @@ const Footer = () => {
           <h3 className="footer__title">Контакты</h3>
           <p className="footer__description">
             г. Санкт-Петербург, м. Невский проспект, ул. Казанская 6.
-            <a href="tel: 8-812-500-50-50" className="footer__link footer__link--phone" aria-label="Номер телефона">
+            <a href="tel:88125005050" className="footer__link footer__link--phone" aria-label="Номер телефона">
               <PhoneIcon className="footer__contacts-icon" />
               8-812-500-50-50
             </a>
