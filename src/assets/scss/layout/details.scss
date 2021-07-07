@@ -15,13 +15,15 @@
 }
 
 .details__title {
-  width: 100px;
+  max-width: 102px;
+  margin-right: 2px;
   text-align: left;
 }
 
 .details__price {
-  width: 93px;
+  max-width: 93px;
   text-align: right;
+  white-space: nowrap;
 }
 
 .details__price span {
