@@ -132,7 +132,7 @@ export const TypeSort = {
 
 export const DirectionSort = {
   INC: `inc`,
-  DESC: `decs`,
+  DEC: `dec`,
 };
 
 export const PromoCode = {

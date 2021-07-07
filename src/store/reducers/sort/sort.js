@@ -16,7 +16,7 @@ const sort = (state = initialState, action) => {
     case CHANGE_SORT_TYPE:
       return extend(state, {
         type: action.payload,
-        direction: state.direction === null ? DirectionSort.DESC : state.direction,
+        direction: state.direction === null ? DirectionSort.DEC : state.direction,
       });
     case CHANGE_SORT_DIRECTION:
       return extend(state, {

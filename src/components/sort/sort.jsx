@@ -66,8 +66,8 @@ const Sort = ({type, direction, setType, setDirection}) => {
         </SortButton>
         <SortButton
           className={`sort__button sort__button--down`}
-          id={DirectionSort.DESC}
-          disabled={direction === DirectionSort.DESC}
+          id={DirectionSort.DEC}
+          disabled={direction === DirectionSort.DEC}
           onClick={handleDirectionClick}
           ariaLabel={`по убыванию`}
         >
