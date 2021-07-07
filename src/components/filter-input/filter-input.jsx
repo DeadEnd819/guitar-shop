@@ -9,7 +9,14 @@ import {priceFilter} from '../../prop-types/prop-types';
 
 const FilterInput = ({type, labelTitle, filterPrice, defaultPrice, setValue}) => {
   const [focus, setFocus] = useState(false);
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(``);
+
+  const currentMin = type === TypeFilterByPrice.MIN ?
+    defaultPrice[TypeFilterByPrice.MIN] :
+    filterPrice[TypeFilterByPrice.MIN];
+  const currentMax = type === TypeFilterByPrice.MAX ?
+    defaultPrice[TypeFilterByPrice.MAX] :
+    filterPrice[TypeFilterByPrice.MAX];
 
   useEffect(() => {
     setPrice(filterPrice[type]);
@@ -19,32 +26,42 @@ const FilterInput = ({type, labelTitle, filterPrice, defaultPrice, setValue}) =>
     setValue(extend(filterPrice, newPrice));
   }, [filterPrice, setValue]);
 
-  const handleBlurChange = () => {
-    const currentMin = type === TypeFilterByPrice.MIN ?
-      defaultPrice[TypeFilterByPrice.MIN] :
-      filterPrice[TypeFilterByPrice.MIN];
-    const currentMax = type === TypeFilterByPrice.MAX ?
-      defaultPrice[TypeFilterByPrice.MAX] :
-      filterPrice[TypeFilterByPrice.MAX];
+  const handleFocusChange = () => {
+    setFocus(true);
+    setPrice(``);
+  };
 
+  const handleBlurChange = () => {
+    setCurrentValue(filterPrice[type], currentMin, currentMax, type, handlePriceChange);
     setFocus(false);
-    setCurrentValue(price, currentMin, currentMax, type, handlePriceChange);
+  };
+
+  const handleInputChange = (value) => {
+    const currentValue = value.replace(/[^\d]/g,'');
+
+    if (Number.isInteger(+currentValue) && +currentValue !== 0) {
+      setPrice(currentValue);
+      setValue(extend(filterPrice, {[type]: +currentValue}));
+      return;
+    }
+
+    if (Number.isInteger(+currentValue) && currentValue !== `0`) {
+      setPrice(currentValue);
+    }
   };
 
   return (
     <>
       <input
         className="filter__input"
-        type="number"
+        type="text"
         id={type}
         name={type}
-        placeholder={splittingDigits(filterPrice[type])}
+        placeholder={splittingDigits(defaultPrice[type])}
         value={focus ? price : splittingDigits(filterPrice[type])}
-        onFocus={() => setFocus(true)}
+        onFocus={handleFocusChange}
         onBlur={handleBlurChange}
-        onChange={(evt) => {
-          setPrice(+evt.target.value);
-        }}
+        onChange={(evt) => handleInputChange(evt.target.value)}
       />
       <label className="visually-hidden" htmlFor={type}>{labelTitle}</label>
     </>
