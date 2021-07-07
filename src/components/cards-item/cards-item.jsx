@@ -39,7 +39,7 @@ const CardsItem = ({id, name, comments, price, img, openModal}) => {
       </div>
       <div className="cards__details details">
         <h3 className="details__title">{name}</h3>
-        <span className="details__price">{splittingDigits(price)} &#8381;</span>
+        <p className="details__price">{splittingDigits(price)}<span>&#8381;</span></p>
       </div>
       <ul className="cards__buttons">
         <li className="cards__buttons-item">

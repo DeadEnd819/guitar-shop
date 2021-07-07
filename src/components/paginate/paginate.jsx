@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const INACTIVE_TAB_INDEX = `-1`;
+
 const PaginateButton = {
   BACK: `back`,
   ONWARD: `onward`,
@@ -12,9 +14,10 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
   const isLastActive = activePage + 1 === pageCount;
   const near = isFirstActive ? (activePage + 2) :
     isLastActive ? (pageCount - 1) : activePage + 1;
+  const isNearActive = activePage === (near - 1);
 
   const handleItemClick = (evt) => {
-    evt.preventDefault(evt.target.id);
+    evt.preventDefault();
 
     if (evt.target.id === PaginateButton.BACK && !isFirstActive) {
       onChangePage(activePage - 1);
@@ -42,9 +45,10 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
     {
       id: 0,
       key: `first`,
-      className: `${activePage === 0 ? ` paginate__link--active` : ``}`,
+      className: `${isFirstActive ? ` paginate__link--active` : ``}`,
       title: `1`,
       isHidden: false,
+      tabIndex: isFirstActive ? INACTIVE_TAB_INDEX : ``,
     },
     {
       id: PaginateButton.MORE,
@@ -63,9 +67,10 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
     {
       id: (near - 1),
       key: `near`,
-      className: `${activePage === (near - 1) ? ` paginate__link--active` : ``}`,
+      className: `${isNearActive ? ` paginate__link--active` : ``}`,
       title: near,
       isHidden: !(pageCount > 2),
+      tabIndex: isNearActive ? INACTIVE_TAB_INDEX : ``,
     },
     {
       id: activePage + 1,
@@ -84,9 +89,10 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
     {
       id: (pageCount - 1),
       key: `last`,
-      className: `${activePage === (pageCount - 1) ? ` paginate__link--active` : ``}`,
+      className: `${isLastActive ? ` paginate__link--active` : ``}`,
       title: pageCount,
       isHidden: !(pageCount > 1),
+      tabIndex: isLastActive ? INACTIVE_TAB_INDEX : ``,
     },
     {
       id: PaginateButton.ONWARD,
@@ -94,13 +100,14 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
       className: ` paginate__link--onward${isLastActive ? ` paginate__link--disabled` : ``}`,
       title: `Далее`,
       isHidden: false,
+      tabIndex: isLastActive ? INACTIVE_TAB_INDEX : ``,
     },
   ];
 
   return (
     <ul className="paginate">
       {
-        paginateItems.map(({id, key, className, title, isHidden}) => {
+        paginateItems.map(({id, key, className, title, isHidden, tabIndex}) => {
           if (isHidden) {
             return null;
           }
@@ -110,8 +117,11 @@ const Paginate = ({activePage, pageCount, onChangePage}) => {
               {/*eslint-disable-next-line*/}
               <a
                 className={`paginate__link${className}`}
+                href="#"
                 id={id}
-                onClick={handleItemClick}>
+                tabIndex={tabIndex}
+                onClick={handleItemClick}
+              >
                 {title}
               </a>
             </li>

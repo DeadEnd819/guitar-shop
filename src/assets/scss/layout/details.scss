@@ -1,6 +1,7 @@
 .details {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -11,4 +12,18 @@
   font-size: 14px;
   line-height: 15px;
   letter-spacing: 0.07em;
+}
+
+.details__title {
+  width: 100px;
+  text-align: left;
+}
+
+.details__price {
+  width: 93px;
+  text-align: right;
+}
+
+.details__price span {
+  margin-left: 4px;
 }
