@@ -1,15 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {ReactComponent as CloseIcon} from '../../assets/img/svg/icon-close.svg';
 import {getTotalCost} from '../../store/selectors';
 import {setChangeProductModalOpen} from '../../store/action';
-import {AmountUpdateType} from '../../const';
+import {AmountUpdateType, MAX_GUITARS} from '../../const';
 import {capitalizeFirstLetter, getUppercaseText, splittingDigits} from '../../utils';
 
 const GUITARS_TO_REMOVE = 0;
 
 const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, openModal, onAmountChange}) => {
+  const [focus, setFocus] = useState(false);
+  const [currentAmount, setCurrentAmount] = useState(``);
+
+  useEffect(() => {
+    setCurrentAmount(amount);
+  }, [amount]);
+
+
   const onDecrementClick = () => {
     if ((amount - 1) > GUITARS_TO_REMOVE) {
       onAmountChange(id, AmountUpdateType.DEC);
@@ -17,6 +25,29 @@ const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, op
     }
 
     openModal(id);
+  };
+
+  const handleFocusChange = () => {
+    setFocus(true);
+    setCurrentAmount(``);
+  };
+
+  const handleBlurChange = () => {
+    setFocus(false);
+  };
+
+  const handleCurrentAmountChange = (value) => {
+    const currentValue = value.replace(/[^\d]/g,'');
+
+    if (Number.isInteger(+currentValue) && +currentValue !== 0 && +currentValue <= MAX_GUITARS) {
+      setCurrentAmount(currentValue);
+      onAmountChange(id, AmountUpdateType.ADD, +currentValue);
+      return;
+    }
+
+    if (Number.isInteger(+currentValue) && currentValue !== `0` && +currentValue <= MAX_GUITARS) {
+      setCurrentAmount(currentValue);
+    }
   };
 
   return (
@@ -63,10 +94,12 @@ const BasketItem = ({id, vendorCode, name, type, strings, price, img, amount, op
         <input
           className="basket__input"
           id={`count-${id}`}
-          type="number"
-          placeholder={amount}
-          value={amount}
-          onChange={(evt) => onAmountChange(id, AmountUpdateType.ADD, +evt.target.value)}
+          type="text"
+          title="Максимальное количество 99"
+          value={!focus ? amount : currentAmount}
+          onFocus={handleFocusChange}
+          onBlur={handleBlurChange}
+          onChange={(evt) => handleCurrentAmountChange(evt.target.value)}
         />
         <button
           className="basket__button"
